@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./index-BrWFGbEw.js";var i={};function a(r,i){return e(),n(`div`,null,[...i[0]||=[t(`h1`,null,`About`,-1)]])}var o=r(i,[[`render`,a]]);export{o as default};

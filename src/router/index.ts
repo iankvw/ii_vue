@@ -10,16 +10,34 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/nav',
-      name: 'nav',
+      path: '/navigation',
+      name: 'navigation',
       component: () => import('../views/NavView.vue'),
       meta: { title: 'Navigation | Ian Kim' }
     },
     {
+      path: '/web',
+      name: 'web',
+      component: HomeView,
+      meta: { title: '웹개발입문 | Ian Kim' }
+    },
+    {
       path: '/server',
       name: 'server',
-      component: HomeView,
+      component: () => import('../views/skhu/ServerView.vue'),
       meta: { title: 'server | Ian Kim' }
+    },
+    {
+      path: '/frontend',
+      name: 'frontend',
+      component: HomeView,
+      meta: { title: '프론트엔드프로그래밍 | Ian Kim' }
+    },
+    {
+      path: '/hybrid',
+      name: 'hybrid',
+      component: HomeView,
+      meta: { title: '하이브리드앱프로그래밍 | Ian Kim' }
     },
   ],
 })

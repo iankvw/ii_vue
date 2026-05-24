@@ -317,7 +317,7 @@
 
             try {
                 const payload = { targetIp: ip, macAddress: mac, port: port || 9 };
-                const response = await fetch('/wol/wake', {
+                const response = await fetch('/api/v1/wol', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
