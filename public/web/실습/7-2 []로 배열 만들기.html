@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <h1>[]로 배열 만들기</h1>
+    <hr>
+    <script>
+        let plots = [20, 5, 8, 15, 20];
+        document.write("var plots = [20, 5, 8, 15, 20]<br>")
+
+        for (let i=0; i<5; i++) {
+            let size = plots[i];
+            for (let j=0; j<size; j++) {
+                document.write("*")
+            }
+            document.write("<br>")
+            while (size > 0) {
+                document.write(size + " ");
+                size--;
+                if (size % 5 == 0) {
+                    document.write("<br>")
+                }
+            }
+            //document.write(plots[i] + "<br>")
+        }
+    </script>
+    <h1>Array 객체로 배열 만들기</h1>
+    <hr>
+    <script>
+        let deg = new Array();
+        deg[0] = 151
+        deg[1] = 154
+        deg[2] = 161
+        deg[3] = 175
+        deg[4] = 192
+        deg[5] = 214
+        deg[6] = 174.5
+
+        let sum = 0
+        for (let i=0; i < deg.length; i++) {
+            sum += deg[i]
+        }
+
+        document.write("평균 온도는" + sum/deg.length/10 + "<br>")
+    </script>
+    <h1>페이지 방문 초시간이 짝수이면 violet, 홀수이면 lightskyblue 배경</h1>
+    <hr>
+    <script>
+        let ts = new Date()
+        if (ts.getSeconds() % 2 == 0)
+            document.body.style.background = "violet"
+        else
+            document.body.style.background = "lightskyblue"
+        document.write("현재 시간: " + ts.getHours() + "시 " + ts.getMinutes() + "분 " + ts.getSeconds() + "초")
+    </script>
+</body>
+</html>

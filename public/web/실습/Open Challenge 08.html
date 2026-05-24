@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>겜블링 게임</title>
+    <style>
+        table {
+            color: blue;
+            background-color: mistyrose;
+            font-size: 3em;
+            font-style: italic;
+            font-weight: bold;
+            border: 1px solid magenta;
+        }
+
+        td {
+            padding: 5px 10px;
+            font-family: consolas, sans-serif;
+        }
+
+        #msg {
+            color: magenta;
+            font-family: consolas, sans-serif;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        let gameArray = [-1, -1, -1]
+        let cheat = 0
+        let cheatn = "hello world"
+
+        function gen(obj, num) {
+            if (gameArray[num] != -1) {
+                cheat += 1
+                return
+            }
+
+            let n = Math.floor(Math.random() * 100)
+            if (cheat > 8) {
+                n = cheatn
+            }
+            else {
+                cheatn = n
+            }
+            gameArray[num] = n
+            obj.innerHTML = n
+
+            if (gameArray[0] != -1 && gameArray[1] != -1 && gameArray[2] != -1) {
+                let msgdiv = document.getElementById("msg")
+                if (gameArray[0] == gameArray[1] && gameArray[0] == gameArray[2]) {
+                    msgdiv.innerHTML = "Success(click here to do again)"
+                }
+                else {
+                    msgdiv.innerHTML = "fail(click here to do again)"
+                }
+            }
+        }
+        function reset() {
+            gameArray = [-1, -1, -1]
+            cheat = 0
+            document.getElementById("msg").innerHTML = ""
+            document.getElementById("first").innerHTML = "X";
+            document.getElementById("second").innerHTML = "X";
+            document.getElementById("third").innerHTML = "X";
+        }
+    </script>
+</head>
+
+<body>
+    <h3>겜블링 게임</h3>
+    각 숫자를 클릭하면 0에서 99사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+    <hr>
+    <table>
+        <tr>
+            <td id="first" onclick="gen(this, 0)">X</td>
+            <td id="second" onclick="gen(this, 1)">X</td>
+            <td id="third" onclick="gen(this, 2)">X</td>
+        </tr>
+    </table>
+    <div id="msg" onclick="reset()"></div>
+</body>
+
+</html>

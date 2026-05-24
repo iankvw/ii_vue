@@ -1,0 +1,1 @@
+.container[data-v-257d1d10]{width:100vw;height:100vh;position:fixed;inset:0;overflow:hidden}@keyframes rotateYAxis-257d1d10{0%{transform:perspective(600px)rotateY(0)}to{transform:perspective(600px)rotateY(360deg)}}.rotating-image[data-v-257d1d10]{height:auto;animation:.5s linear infinite rotateYAxis-257d1d10;position:absolute}

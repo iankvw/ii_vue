@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 비밀번호 생성기</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background-color: #F8F9FA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #212529;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(169, 29, 58, 0.08);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .result-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F8F9FA;
+            padding: 18px 20px;
+            border-radius: 14px;
+            border: 2px solid #DEE2E6;
+            margin-bottom: 25px;
+            transition: border-color 0.2s;
+        }
+
+        #resultText {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #A91D3A;
+            word-break: break-all;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #resultText:hover {
+            color: #C12745;
+        }
+
+        button.btn-go {
+            background: #A91D3A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        button.btn-go:hover {
+            background: #C12745;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(169, 29, 58, 0.2);
+        }
+
+        button.btn-go:active {
+            background: #8E1831;
+            transform: translateY(0);
+        }
+
+        .length-wrapper {
+            padding: 15px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #DEE2E6;
+        }
+
+        .length-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #212529;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 6px;
+            border: 1px solid #DEE2E6;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #A91D3A;
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        button.btn-pm {
+            background: #F8F9FA;
+            color: #212529;
+            border: 1px solid #DEE2E6;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button.btn-pm:hover {
+            background: #DEE2E6;
+            color: #A91D3A;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+            cursor: pointer;
+            accent-color: #A91D3A;
+        }
+
+        .settings {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 15px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+            accent-color: #A91D3A;
+        }
+
+        .exclude-box {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #DEE2E6;
+        }
+        
+        .label-title {
+            margin-bottom: 10px; 
+            font-weight: bold; 
+            color: #212529;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="result-box">
+            <span id="resultText" onclick="copyPassword()" title="클릭하여 복사"></span>
+            <button class="btn-go" onclick="generatePassword()">GO</button>
+        </div>
+
+        <div class="length-wrapper">
+            <div class="length-header">
+                <span class="label-title">암호 길이</span>
+                <input type="number" id="pwdLen" value="15">
+            </div>
+            <div class="slider-group">
+                <button class="btn-pm" id="btnMinus">−</button>
+                <input type="range" id="pwdSlider" min="4" max="50" value="15">
+                <button class="btn-pm" id="btnPlus">+</button>
+            </div>
+        </div>
+
+        <div id="checkboxGroup" class="settings">
+            <div class="label-title">사용할 문자</div>
+            <label><input type="checkbox" class="char-type" id="chkUpp" checked> ABC </label>
+            <label><input type="checkbox" class="char-type" id="chkLow" checked> abc </label>
+            <label><input type="checkbox" class="char-type" id="chkNum" checked> 123 </label>
+            <label><input type="checkbox" class="char-type" id="chkSym" checked> @#$ </label>
+            <label><input type="checkbox" class="char-type" id="chkSym2"> )_+ </label><br>
+        </div>
+
+        <div class="exclude-box">
+            <label><input type="checkbox" id="chkExc"> 비슷한 문자 제외 (1, I, l 등)</label>
+        </div>
+    </div>
+
+    <script>
+        const pwdLen = document.getElementById('pwdLen');
+        const pwdSlider = document.getElementById('pwdSlider');
+        const btnMinus = document.getElementById('btnMinus');
+        const btnPlus = document.getElementById('btnPlus');
+
+        function syncLength(val) {
+            let v = parseInt(val);
+            if (isNaN(v) || v < 1) v = 1;
+            if (v > 50) v = 50;
+            pwdLen.value = v;
+            pwdSlider.value = v;
+        }
+
+        pwdLen.addEventListener('input', (e) => syncLength(e.target.value));
+        pwdSlider.addEventListener('input', (e) => syncLength(e.target.value));
+
+        btnMinus.addEventListener('click', () => {
+            syncLength(parseInt(pwdLen.value) - 1);
+        });
+        btnPlus.addEventListener('click', () => {
+            syncLength(parseInt(pwdLen.value) + 1);
+        });
+
+        const checkboxes = document.querySelectorAll('.char-type');
+        checkboxes.forEach(cb => {
+            cb.addEventListener('click', function (e) {
+                const checkedCount = document.querySelectorAll('.char-type:checked').length;
+                if (checkedCount === 0) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        let currentPassword = '';
+
+        function generatePassword() {
+            const length = parseInt(document.getElementById('pwdLen').value);
+            const useUpp = document.getElementById('chkUpp').checked;
+            const useLow = document.getElementById('chkLow').checked;
+            const useNum = document.getElementById('chkNum').checked;
+            const useSym = document.getElementById('chkSym').checked;
+            const useSym2 = document.getElementById('chkSym2').checked;
+            const useExc = document.getElementById('chkExc').checked;
+
+            let chars = '';
+            if (useUpp) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (useLow) chars += 'abcdefghijklmnopqrstuvwxyz';
+            if (useNum) chars += '0123456789';
+            if (useSym) chars += '!@#$%^&*';
+            if (useSym2) chars += '()-_=+[]{}\\|;:\'",.<>/?`~';
+
+            if (useExc) {
+                chars = chars.replace(/[|lIi1!0OQS5n'`]/g, '');
+            }
+
+            let password = '';
+            if (length > 0 && chars.length > 0) {
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * chars.length);
+                    password += chars[randomIndex];
+                }
+            }
+
+            currentPassword = password;
+            document.getElementById('resultText').innerText = password;
+        }
+
+        function copyPassword() {
+            if (!currentPassword) return;
+
+            navigator.clipboard.writeText(currentPassword).then(() => {
+                const resultSpan = document.getElementById('resultText');
+                const originalText = currentPassword;
+                resultSpan.innerText = '복사 완료!';
+
+                setTimeout(() => {
+                    resultSpan.innerText = originalText;
+                }, 800);
+            }).catch(err => {
+                alert('복사 실패');
+            });
+        }
+
+        generatePassword();
+    </script>
+</body>
+
+</html>

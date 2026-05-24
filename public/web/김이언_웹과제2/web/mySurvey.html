@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹개발입문 스터디그룹 참여 신청서</title>
+    <link href="files/mystyle.css" type="text/css" rel="stylesheet">
+    <style>
+        header, textarea {animation-name: textColor; animation-duration: 15s; animation-iteration-count: infinite;}
+        input:hover, input:focus {background: gold; color: red;}
+        select:hover, select:focus {background: gold;}
+        input:focus {animation-name: bomb; animation-duration: 3s;}
+
+        #surveytrue {width: 100%; z-index: 999; position: fixed; top: 0; left: 0; background-color: aliceblue;}
+    </style>
+</head>
+<body>
+    <div id="surveytrue">
+        <script>
+            //신청서 제출하면 실행
+            let surveytrue = document.getElementById("surveytrue");
+        function surveySubmit() {
+            survey = confirm("제출할까요?");
+            if(survey == true) {
+                alert("제출했습니다.");
+                surveytrue.innerHTML = '<h1>웹개발입문 스터디그룹 참여 신청서</h1><br><hr><span style="text-indent: 2em; font-size: 2em;">제출해 주셔서 감사합니다.</span><br><br><a href="mySurvey.html" target="_self">다시 제출하기</a>';
+                surveytrue.style.height = "100%"
+            }
+        }
+        </script>
+    </div>
+    <header>
+        <h1>웹개발입문 스터디그룹 참여 신청서</h1>
+        웹개발입문 스터디그룹에 참여할 사람은 아래의 각 사항에 답하여 보내주세요. 많은 참여 부탁드립니다.
+        <hr>
+    </header>
+    <section>
+        <form name="id" style="background: mistyrose; padding: 10px;">
+            <p>
+                <label>이름 <input type="text" size="22" value=""></label>
+                <br>
+            </p>
+            <p>
+                <label>이메일 <input type="email" size="20" value="" placeholder="id@host.com"></label>
+                <br>
+            </p>
+            <p>
+                <label>전화번호 <input type="tel" list="phonenum" size="2" value="">
+                    <datalist id="phonenum">
+                        <option value="010"></option>
+                        <option value="02"></option>
+                        <option value="031"></option>
+                        <option value="032"></option>
+                    </datalist>
+                    <input type="tel" size="10" value=""></label>
+                <br>
+            </p>
+            <p>
+                성별
+                <label><input type="radio" name="sex" value="1">남</label>
+                <label><input type="radio" name="sex" value="2">여</label>
+                <br>
+            </p>
+            <p>
+                학년
+                <label><input type="radio" name="grade" value="1">1학년</label>
+                <label><input type="radio" name="grade" value="2" checked>2학년</label>
+                <label><input type="radio" name="grade" value="3">3학년</label>
+                <label><input type="radio" name="grade" value="4">4학년</label>
+                <br>
+            </p>
+            <p>
+                소속학부
+                <select name="majorSelect">
+                    <option value="1">인문융합콘텐츠/자율학부</option>
+                    <option value="2">경영학부</option>
+                    <option value="3">사회융합(자율)학부</option>
+                    <option value="4">미디어콘텐츠융합(자율)학부</option>
+                    <option value="5">미래융합학부</option>
+                    <option value="6" selected>소프트웨어융합/IT융합자율학부</option>
+                </select>
+                <br>
+            </p>
+            <fieldset>
+                <legend>전공</legend>
+                <label>제1전공 <input type="text" size="15" value=""></label>
+                <br>
+                <label>제2전공 <input type="text" size="15" value=""></label>
+            </fieldset>
+            <p>
+                관심주제
+                <label><input type="checkbox">HTML5</label>
+                <label><input type="checkbox">CSS3</label>
+                <label><input type="checkbox">Javascript</label>
+                <label><input type="checkbox">웹 페이지 제작</label>
+            </p>
+            <p>
+                <label>
+                    첫모임 가능일시
+                    <input type="date" value="2025-05-09" class="firstMeet">
+                    <input type="time" value="23:59" class="firstMeet">
+                </label>
+            </p>
+            <p>
+                <label>
+                    첫모임 공부시간(분)
+                    <input type="number" value="10" min="0" step="5">
+                </label>
+            </p>
+            <p>
+                <label>
+                    문의 또는 바라는 글
+                    <br>
+                    <textarea cols="40" rows="8">자유롭게 글을 남겨주세요</textarea>
+                </label>
+            </p>
+            <p>
+                <input type="button" value="취소">
+                <input type="button" value="제출" onclick="surveySubmit()">
+            </p>
+        </form>
+    </section>
+</body>
+</html>

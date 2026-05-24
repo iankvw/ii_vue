@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 대학생활 소개</title>
+    <link href="web/files/mystyle.css" type="text/css" rel="stylesheet">
+    <style>
+        /*목차(#navList), 전공선택 졸업유형(#majorList)*/
+        #navList, #majorList {background: olive; padding: 2px; color: white;}
+        #navList li, #majorList li {margin-top: 2px; margin-bottom: 2px; list-style-position: inside;}
+        #navList li {list-style-type: none; display: inline-block; width: 30%; text-align: center;}
+        #navList #chap4li {width: 90%;}
+        #navList a {color: white; text-decoration: none;}
+        #navList a:hover {color: violet; text-decoration: none; font-weight: bold;}
+
+        /*1. 자기소개(#chap1)*/
+        #chap1 p {text-indent: 1em;}
+        span.intro {font-size: larger; font-weight: bold; display: inline-block; text-indent: 0em;}
+        span.intro:hover {animation-name: rotate; animation-duration: 5s; animation-iteration-count: infinite;}
+        #survey {transition: color 3s, background 3s; background: greenyellow; padding: 10px; border-radius: 20px; border-style: dotted; text-decoration: none; color: blue;}
+        #survey:hover {background: blue; color: greenyellow;}
+
+        /*2. 학기 계획(#chap2)*/
+        summary {background: olive; color: yellow;}
+        #majorList > li {padding: 10px;}
+        #majorList > li:hover {animation-name: bomb; animation-duration: 3s; font-size: 200%;}
+        /*b. 수강 과목과 수업 시간*/
+        th, td {padding: 10px;}
+        td {border-bottom: 1px solid gray;}
+        tbody tr {background: white;}
+        tbody tr:nth-child(even) {background: mistyrose;}
+        tbody tr:hover {background: pink;}
+        td > a {text-decoration: none; color: black;}
+        /*과목별 정보*/
+        #subinfo {display: block; margin: 10px; margin-left: 0px; font-size: larger; font-weight: bold; text-indent: 2em;}
+
+        /*4. 자바스크립트 실습과제와 수행결과*/
+        #chap4 {background: mistyrose; border-radius: 20px; border-style: dotted; border-color: rosybrown; padding: 10px;}
+        #chap4 h3 {margin-top: 5px;}
+        #chap4 div {background: aliceblue; border-radius: 20px; border-style: dotted; border-color: skyblue; padding: 5px; margin: 5px;}
+
+        /*footer*/
+        footer {height: 100px; background-color: skyblue; background-image: url(web/media/footerbackground.png); background-size: 100px 100px; background-repeat: repeat-x;}
+        footer > p {margin: 20px;}
+    </style>
+    <script>
+        let majorClickStatus = false;
+        function majorClick(obj) {
+            if(majorClickStatus == false) {
+                obj.style.color="white"
+                majorClickStatus = true;
+            }
+            else {
+                obj.style.color="yellow"
+                majorClickStatus = false
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>나의 대학생활 소개</h1>
+        김이언의 대학생활을 소개합니다. 나에 대해 알고 싶은 부분을 목차에서 선택하여 클릭해보세요.
+        <hr>
+    </header>
+    <nav>
+        <h3>목차</h3>
+        <ol id="navList">
+            <li><a href="#chap1">자기소개</a></li>
+            <li><a href="#chap2">2025-1학기 계획</a></li>
+            <li><a href="#chap3">교내외 활동</a></li>
+            <br>
+            <li id="chap4li"><a href="#chap4">자바스크립트 실습과제와 수행결과</a></li>
+        </ol>
+    </nav>
+    <section>
+        <article id="chap1">
+            <h3>1. 자기소개</h3>
+            <p>
+                안녕하세요. &hearts; 소프트웨어융합학부 <b>김이언</b>입니다. 프론트엔드, 백엔드 웹 개발 기술에 관심이 많아 웹 개발 입문 수업을 듣고 있습니다.
+            </p>
+            <!--자기소개 내용 추가-->
+            <p>
+                웹 개발뿐만 아니라 파이썬에도 관심이 많아서, 평소에는 간단한 자동화 스크립트를 짜보거나 데이터 다루는 연습을 하고 있습니다.
+            </p>
+            <p>
+                &phone; 이번 학기 <span class="intro">HTML5</span> &plus; <span class="intro"
+                    style="color: red;">CSS3</span> &plus; <span class="intro" style="color: blue;">Javascript</span>를
+                함께 공부해볼 친구 있으면 연락 주세요.
+            </p>
+            <p>
+                또는 <a href="web/mysurvey.html" target="_blank" id="survey" title="이곳을 클릭하여 신청서를 작성하세요.">스터디그룹 참여
+                    신청하기</a>를 눌러 신청서를 자세히 작성해주세요.
+            </p>
+        </article>
+        <article id="chap2">
+            <h3>2. 학기 계획</h3>
+            <ol type="a">
+                <li><b>전공선택 졸업유형&colon; 복수전공</b></li>
+                <details>
+                    <summary onclick="majorClick(this)">복수전공 정보</summary>
+                    <ul id="majorList">
+                        <li>복수전공&colon; 소프트웨어융합전공</li>
+                        <li>복수전공&colon; 인공지능전공</li>
+                    </ul>
+                </details>
+                <br>
+                <li><b>수강 과목과 수업 시간</b></li>
+                <table style="border-collapse: collapse; text-align: left;">
+                    <thead style="background: darkgray; color: yellow;">
+                        <tr>
+                            <th width="150">과목명</th>
+                            <th width="150">수업시간</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="web/info_iot.html" target="info">사물인터넷기초</a></td>
+                            <td>월 09&colon;00&dash;11&colon;50</td>
+                        </tr>
+                        <tr>
+                            <td><a href="web/info_py.html" target="info">Python프로그래밍</a></td>
+                            <td>월&comma; 수 13&colon;30&dash;14&colon;45</td>
+                        </tr>
+                        <tr>
+                            <td><a href="web/info_data.html" target="info">데이터통신</a></td>
+                            <td>화&comma; 목 13&colon;30&dash;14&colon;45</td>
+                        </tr>
+                        <tr>
+                            <td><a href="web/info_web.html" target="info">웹개발입문</a></td>
+                            <td>화&comma; 목 15&colon;00&dash;16&colon;15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ol>
+            <div>
+                <span id="subinfo">과목별 정보</span>
+                <iframe name="info" src="web/info_info.html" width="100%" height="600px" style="border-style: none;"></iframe>
+            </div>
+        </article>
+        <article id="chap3">
+            <h3>3. 교내외 활동</h3>
+            2025학년도 1학기 현재 교내외에서 다음과 같은 활동들을 하고 있습니다.
+            <ul id="activity">
+                <li>서울로봇인공지능과학관에서 체험, 교육 활동지원, 전시실 질서 유지 및
+                    프로그램 진행 보조 자원봉사를 하고 있음</li>
+                <!--교내외 활동 내용 추가-->
+                <li>백준 사이트에서 Python, C++, Kotlin 언어별로 40개 이상 문제 풀이하기 도전 중</li>
+            </ul>
+        </article>
+        <!--자바스크립트 실습과제와 수행결과 추가-->
+        <article id="chap4">
+            <h3>4. 자바스크립트 실습과제와 수행결과</h3>
+            <div>
+                <a href="web/js-6-3.html" target="_blank">[실습 6-3]</a>
+                <br>
+                onmouseover 이벤트 리스너를 사용하여 마우스를 올린 항목의 배경색을 변경하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-6-4.html" target="_blank">[실습 6-4]</a>
+                <br>
+                prompt를 이용하여 사용자로부터 입력을 받고, document.write()를 이용하여 결과를 표시하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-7-1.html" target="_blank">[실습 7-1]</a>
+                <br>
+                배열을 생성하고, 가장 큰 수를 찾고, 정렬하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-7-9.html" target="_blank">[실습 7-9]</a>
+                <br>
+                다양한 방법으로 객체를 만드는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-7-10.html" target="_blank">[실습 7-10]</a>
+                <br>
+                객체를 이용하여 객체 배열을 만드는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-8-1.html" target="_blank">[실습 8-1]</a>
+                <br>
+                버튼을 눌렀을 때 getElementsByTagName()으로 span 태그를 찾고, CSS3의 visibility 프로퍼티의 값을 변경하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-8-2.html" target="_blank">[실습 8-2]</a>
+                <br>
+                innerHTML을 활용하여 span 태그를 눌렀을 때 내용이 바뀌도록 하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-8-3.html" target="_blank">[실습 8-3]</a>
+                <br>
+                버튼을 눌렀을 때 parentElement를 활용하여 버튼의 부모를 찾고, appendChild(), removeChild()를 사용하여 자식을 생성, 삭제하는 실습과제입니다.
+            </div>
+            <div>
+                <a href="web/js-8-4.html" target="_blank">[실습 8-4]</a>
+                <br>
+                배열을 사용하여 게임을 생성하고, 사용자의 클릭에 따라 innerHTML을 활용하여 게임 결과를 출력하고, 초기화하는 실습과제입니다.
+            </div>
+        </article>
+    </section>
+    <footer>
+        <p>
+            <br><br>
+            Copyright 2025 김이언
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+body {background-color: rgb(159, 225, 248);}
+#header1 {margin-left: 8%;}
+#movesite {background: rgb(159, 225, 248);}
+section {background-color: white; margin: 3% 8% 3% 8%; padding: 2%;}
+#section1 {text-align: center;}
+#header2 {text-align: center;}
+#article2 {text-align: center;}
+input[type=submit] {background: white;}
+input[type=submit]:hover {background: aliceblue;}

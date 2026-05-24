@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹개발입문</title>
+</head>
+<body>
+    <h1>HTML5 기본 문서 만들기</h1>
+    <hr>
+    <p>
+        <!--주석문-->
+        &lt;!--주석문 태그--&gt;
+    </p>
+    <p>
+        <h3>HTML5 페이지의 필수 태그</h3>
+        &lt;!DOCTYPE html&gt; - HTML5 문서임을 알리는 지시어<br>
+        &lt;html&gt;, &lt;head&gt;, &lt;title&gt;, &lt;body&gt; 태그<br>
+        <h3>HTML 태그 구성</h3>
+        <li>
+            시작태그와 종료태그가 모두 있는 경우
+        </li>
+        <ul>
+            <li>
+                &lt;html&gt; ... &lt;/html&gt;, &lt;title&gt; ... &lt;/title&gt;
+            </li>
+        </ul>
+        <li>
+            시작태그만 있는 경우
+        </li>
+        <ul>
+            <li>&lt;br&gt;</li>
+        </ul>
+        <h3>태그와 속성은 대소문자 구분 없음</h3>
+        &lt;HTML&gt; ... &lt;/html&gt;
+        <h3>속성 값에 불필요한 공백 - HTML5 표준에 어긋남</h3>
+    </p>
+    <p>
+        <h3>웹 페이지 타이틀 달기</h3>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;여기에 타이틀 입력&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+...
+        </pre>
+        <h3>&lt;h1&gt;, ..., &lt;h6&gt; 태그로 문단 제목 달기</h3>
+        <ul>
+            <h1>&lt;h1&gt; 태그</h1>
+            <h2>&lt;h2&gt; 태그</h2>
+            <h3>&lt;h3&gt; 태그</h3>
+            <h4>&lt;h4&gt; 태그</h4>
+            <h5>&lt;h5&gt; 태그</h5>
+            <h6>&lt;h6&gt; 태그</h6>
+        </ul>
+        <h3>title 속성으로 툴팁 달기</h3>
+        &lt;h1 title=&quot;여기에 툴팁을 입력&quot;&gt;
+        <p title="&lt;h1 title=&quot;여기에 툴팁을 입력&quot;&gt;">텍스트 위에 마우스를 올리면 툴팁이 출력됨</p>
+        <h3>&lt;p&gt;로 단락 나누기</h3>
+        <h3>&lt;hr&gt; 태그로 수평선 긋기</h3>
+        <hr>
+        종료 태그 &lt;/hr&gt;를 사용하지 않는다
+        <h3>&lt;br&gt; 태그로 새로운 줄로 넘어가기</h3>
+        종료 태그 &lt;/br&gt;를 사용하지 않는다
+        <h3>문자, 기호, 심볼 입력</h3>
+        &lt 는 &amp;lt; 로 입력
+        <h3>&lt;pre&gt; 태그로 개발자의 포맷 그대로 출력</h3>
+        <pre>
+&lt;pre&gt; 태그를 사용하면
+    사용자가 입력한 그대로 출력됨
+        </pre>
+        <p>
+            <h3>텍스트 꾸미기</h3>
+            &lt;b&gt; <b>진하게</b><br>
+            &lt;strong&gt; <strong>중요한</strong><br>
+            &lt;em&gt; <em>강조</em><br>
+            &lt;i&gt; <i>이탤릭으로 강조</i><br>
+            &lt;small&gt; <small>한 단계 작은 문자</small><br>
+            &lt;del&gt; <del>삭제</del><br>
+            &lt;ins&gt; <ins>추가</ins><br>
+            &lt;sup&gt; <sup>윗첨자</sup><br>
+            &lt;sub&gt; <sub>아래첨자</sub><br>
+            &lt;mark&gt; <mark>하이라이팅</mark>
+        </p>
+        <h3></h3>
+    </p>
+</body>
+</html>

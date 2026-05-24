@@ -1,0 +1,25 @@
+* {font-family: 'Times New Roman', Times, serif;}
+body {background: aliceblue;}
+h1 {text-align: center; color: brown;}
+h3 {color: blue; text-shadow: 3px 3px lightblue;}
+img {margin: 5px; border: 10px outset lightblue;}
+
+@keyframes bomb {
+    from {font-size: 100%;}
+    to {font-size: 200%;}
+}
+
+@keyframes textColor {
+    0% {color: red;}
+    10% {color: gold;}
+    30% {color: green;}
+    50% {color: blue;}
+    70% {color: purple;}
+    90% {color: magenta;}
+    100% {color: red;}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}

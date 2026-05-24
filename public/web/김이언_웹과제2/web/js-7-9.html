@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 7-9</title>
+    <link href="files/mystyle.css" type="text/css" rel="stylesheet">
+    <script>
+        function prbook(obj) {
+            document.write("book : " + obj.title + ", " + obj.author + ", " + obj.price)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>book 객체 만들기</h1>
+    <hr>
+    <h3>new Object()</h3>
+    <script>
+        book1 = new Object();
+        book1.title = "HTML5";
+        book1.author = "황기태";
+        book1.price = 12345;
+        prbook(book1);
+    </script>
+    <h3>리터럴 표기법</h3>
+    <script>
+        book2 = {
+            title: "HTML6",
+            author: "황기태",
+            price: 23456
+        }
+        prbook(book2);
+    </script>
+    <h3>프로토타입</h3>
+    <script>
+        function book(title, author, price) {
+            this.title = title;
+            this.author = author;
+            this.price = price;
+        }
+        let book3 = new book("HTML7", "황기태", 34567);
+        prbook(book3);
+    </script>
+</body>
+
+</html>

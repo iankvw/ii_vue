@@ -1,0 +1,137 @@
+<!--
+학번 : 202214038
+
+이름 : 김이언
+
+과제작성일: 2026-03-20
+
+과제설명 : [hw3_1] CSS3 기본
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[hw3_1] CSS3 기본</title>
+    <style>
+        #intro {
+            font-weight: bold;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        thead {
+            font-size: 12px;
+            color: red;
+        }
+        th {
+            width: 16%;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        /*
+        header tag(h1~h6 중 하나) / 이름 출력.
+        문단 tag / 자기소개를 해주세요(5줄 이상)(텍스트 서식 최소 2개 이상 사용)
+        링크 tag / 자주 방문하는 사이트 (새창으로 열리게)
+        리스트 tag / 현재 이번 학기 수강하고 있는 과목
+        table tag / 현재 수강하고 있는 과목 중 3개에 대한 주간 시간표(colspan 또는 rowspan 2번 이상 사용)
+
+        자기 소개 부분에 div나 span을 사용하여 글자 스타일 속성 2개 이상을 "내부방식"으로 적용하시오.
+        시간표 첫번째 줄을 선택자로 선택하여 글자크기를 12, 색깔을 red로 적용하시오.
+        */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>김이언</h1>
+    </header>
+    <hr>
+    <section>
+        <div id="intro">
+            <br>
+            안녕하세요. 저는 소프트웨어융합학부 김이언입니다.
+            <br>
+            평소 프로그래밍, 서버 관리에 관심이 많습니다.
+            <br>
+            이번 학기에는 <span style="color: blue; font-size: large;">프론트엔드프로그래밍</span>과 <span style="color: green; font-size: large;">모바일 프로그래밍</span>을 수강하고 있습니다.
+            <br>
+            웹 개발과 관련된 다양한 기술을 배우고 싶어서 열심히 공부 중입니다.
+            <br>
+            앞으로도 계속해서 성장하는 개발자가 되기 위해 노력할 예정입니다. 감사합니다!
+        </div>
+        <div>
+            <h3>자주 방문하는 사이트</h3>
+            <a href="https://www.google.com" target="_blank">구글 바로가기</a>
+        </div>
+        <div>
+            <h3>2026학년도 1학기 수강 과목</h3>
+            <ul>
+                <li>운영체제</li>
+                <li>프론트엔드프로그래밍</li>
+                <li>논리회로설계</li>
+                <li>모바일프로그래밍</li>
+                <li>하이브리드앱프로그래밍</li>
+            </ul>
+        </div>
+        <div>
+            <h3>주간 시간표</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00</td>
+                        <td rowspan="2"></td>
+                        <td rowspan="2"></td>
+                        <td rowspan="2">논리회로설계</td>
+                        <td rowspan="6"></td>
+                        <td rowspan="2">모바일프로그래밍</td>
+                    </tr>
+                    <tr>
+                        <td>10:30</td>
+                    </tr>
+                    <tr>
+                        <td>12:00</td>
+                        <td>운영체제</td>
+                        <td rowspan="2">1인미디어의이해와제작</td>
+                        <td>운영체제</td>
+                        <td rowspan="2">하이브리드앱프로그래밍</td>
+                    </tr>
+                    <tr>
+                        <td>13:30</td>
+                        <td>프론트엔드프로그래밍</td>
+                        <td>프론트엔드프로그래밍</td>
+                    </tr>
+                    <tr>
+                        <td>15:00</td>
+                        <td rowspan="2"></td>
+                        <td rowspan="2"></td>
+                        <td rowspan="2">기업가정신CEO특강</td>
+                        <td rowspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>16:30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div></div>
+</body>
+</html>

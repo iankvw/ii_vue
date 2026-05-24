@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 6-3</title>
+    <link href="files/mystyle.css" type="text/css" rel="stylesheet">
+    <style>
+        span.number {
+            border: 1px solid black;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        #no1:hover {
+            background: red;
+        }
+    </style>
+    <script>
+        function bgchanger(obj, color) {
+            obj.style.background = color
+        }
+    </script>
+</head>
+
+<body>
+    <h3>마우스를 올려 보세요</h3>
+    <hr>
+    <div id="msg">
+        여기에 마우스를 올리면 배경색이 노란색으로 변합니다.
+    </div>
+    <br>
+    <div>
+        <!--css3을 사용한 예시입니다.-->
+        <span id="no1" class="number"> 1 </span>
+        <!--HTML 태그의 이벤트 리스너 속성에 Javascript 코드를 직접 작성한 예시입니다.-->
+        <span id="no2" class="number" onmouseover="this.style.background='blue'" onmouseout="this.style.background='aliceblue'"> 2 </span>
+        <!--<script></script> 태그 내에 작성된 함수를 이용한 예시입니다.-->
+        <span id="no3" class="number" onmouseover="bgchanger(this, 'green')" onmouseout="bgchanger(this, 'aliceblue')"> 3 </span>
+    </div>
+</body>
+
+</html>

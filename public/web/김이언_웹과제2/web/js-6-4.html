@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 6-4</title>
+    <link href="files/mystyle.css" type="text/css" rel="stylesheet">
+    <style>
+        span.number {
+            border: 1px solid black;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 25px;
+        }
+    </style>
+    <script>
+        function service(day) {
+            //서비스를 하는 날
+            if (day == "월" || day == "화" || day == "수" || day == "목" || day == "금") {
+                document.write('<p style="color:blue">' + day + '요일은 서비스를 하는 날입니다.</p>')
+                document.getElementById(day).style.background = "blue";
+            }
+            //쉬는 날
+            else if (day == "토" || day == "일") {
+                document.write('<p style="color:red">' + day + '요일은 쉬는 날입니다.</p>')
+                let span = document.getElementById(day)
+                span.style.background = "red"
+            }
+            //잘못입력
+            else {
+                document.write('<p>잘못 입력하셨습니다.</p>')
+            }
+        }
+        function week(day) {
+            if (day == "월" || day == "화" || day == "수" || day == "목" || day == "금") {
+                let id = document.getElementById(day)
+                id.style.background = "blue";
+            }
+            else {
+                let id = document.getElementById(day)
+                id.style.background = "red";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Welcome Home</h3>
+    <hr>
+    저희 홈 페이지 오신 것을 환영합니다.
+    <hr>
+    <script>
+        let day = prompt("월화수목금토일 중에서 입력하세요")
+        service(day)
+    </script>
+    <div>
+        <span id="월" class="number">월</span>
+        <span id="화" class="number">화</span>
+        <span id="수" class="number">수</span>
+        <span id="목" class="number">목</span>
+        <span id="금" class="number">금</span>
+        <span id="토" class="number">토</span>
+        <span id="일" class="number">일</span>
+    </div>
+    <script>
+        week(day)
+    </script>
+</body>
+
+</html>

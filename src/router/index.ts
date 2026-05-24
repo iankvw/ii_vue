@@ -15,6 +15,12 @@ const router = createRouter({
       component: () => import('../views/NavView.vue'),
       meta: { title: 'Navigation | Ian Kim' }
     },
+    {
+      path: '/server',
+      name: 'server',
+      component: HomeView,
+      meta: { title: 'server | Ian Kim' }
+    },
   ],
 })
 

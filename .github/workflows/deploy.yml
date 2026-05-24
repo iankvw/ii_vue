@@ -11,6 +11,8 @@ jobs:
   # ==================================================
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
       - name: Fetch Source Code Repository
         uses: actions/checkout@v4
@@ -18,7 +20,7 @@ jobs:
       - name: Initialize Node.js Development Environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install Dependencies and Execute Production Build
@@ -38,6 +40,8 @@ jobs:
   deploy-canary:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
       - name: Download Build Artifacts
         uses: actions/download-artifact@v4
@@ -45,26 +49,27 @@ jobs:
           name: dist-files
           path: dist/
 
-      # Cloudflare Access Zero Trust 통과를 위한 cloudflared CLI 바이너리 설치 및 환경 설정
-      - name: Inject Cloudflare Zero Trust Client (cloudflared)
+      - name: Inject Cloudflare Zero Trust Client and SSH Key
         run: |
           curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
-          mkdir -p ~/.ssh
           
-          # SSH 접속 시 Cloudflare Service Token을 헤더에 삽입하여 ProxyCommand를 구동하도록 SSH config 설정
-          echo "Host ${{ secrets.CANARY_HOST }}" >> ~/.ssh/config
-          echo "  ProxyCommand /usr/local/bin/cloudflared access ssh --id ${{ secrets.CF_ACCESS_CLIENT_ID }} --secret ${{ secrets.CF_ACCESS_CLIENT_SECRET }} --hostname %h" >> ~/.ssh/config
+          mkdir -p ~/.ssh
+          cat << 'EOF' > ~/.ssh/id_ed25519
+          ${{ secrets.SSH_KEY }}
+          EOF
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_ed25519
+          
+          cat >> ~/.ssh/config << 'EOF'
+          Host ${{ secrets.CANARY_HOST }}
+            IdentityFile ~/.ssh/id_ed25519
+            StrictHostKeyChecking no
+            ProxyCommand /usr/local/bin/cloudflared access ssh --id "${{ secrets.CF_ACCESS_CLIENT_ID }}" --secret "${{ secrets.CF_ACCESS_CLIENT_SECRET }}" --hostname %h
+          EOF
 
       - name: Transmit Artifacts to Canary Infrastructure Via Cloudflare Tunnel
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.CANARY_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "dist/*"
-          target: "/home/ubuntu/web_service/"
-          strip_components: 1
+        run: rsync -avz --delete dist/ ${{ secrets.SSH_USER }}@${{ secrets.CANARY_HOST }}:/home/ubuntu/docker/ii_vue/
 
   # ==================================================
   # [STAGE 3] Orchestrated Production Multi-Server Deployment (Manual Approval Gate Enabled)
@@ -73,10 +78,10 @@ jobs:
     needs: deploy-canary
     runs-on: ubuntu-latest
     environment: production
-    
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     strategy:
       matrix:
-        # 분산 운영 서버 호스트 및 도메인 환경 매트릭스 구성
         server: [AMPERE_HOST]
 
     steps:
@@ -86,23 +91,24 @@ jobs:
           name: dist-files
           path: dist/
 
-      # 운영 서버들의 도메인 역시 Cloudflare Access로 보호되는 환경이므로 동일한 SSH Proxy 래핑 레이어 적용
-      - name: Inject Cloudflare Zero Trust Client (cloudflared)
+      - name: Inject Cloudflare Zero Trust Client and SSH Key
         run: |
           curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
-          mkdir -p ~/.ssh
           
-          # 매트릭스 동적 호스트에 매핑되는 모든 도메인의 SSH 핸드셰이크에 서비스 토큰 주입 규칙 생성
-          echo "Host ${{ secrets[matrix.server] }}" >> ~/.ssh/config
-          echo "  ProxyCommand /usr/local/bin/cloudflared access ssh --id ${{ secrets.CF_ACCESS_CLIENT_ID }} --secret ${{ secrets.CF_ACCESS_CLIENT_SECRET }} --hostname %h" >> ~/.ssh/config
+          mkdir -p ~/.ssh
+          cat << 'EOF' > ~/.ssh/id_ed25519
+          ${{ secrets.SSH_KEY }}
+          EOF
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_ed25519
+          
+          cat >> ~/.ssh/config << EOF
+          Host ${{ secrets[matrix.server] }}
+            IdentityFile ~/.ssh/id_ed25519
+            StrictHostKeyChecking no
+            ProxyCommand /usr/local/bin/cloudflared access ssh --id "${{ secrets.CF_ACCESS_CLIENT_ID }}" --secret "${{ secrets.CF_ACCESS_CLIENT_SECRET }}" --hostname %h
+          EOF
 
       - name: Parallel Deployment and Syncing to Production Servers
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets[matrix.server] }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "dist/*"
-          target: "/home/ubuntu/web_service/"
-          strip_components: 1
+        run: rsync -avz --delete dist/ ${{ secrets.SSH_USER }}@${{ secrets[matrix.server] }}:/home/ubuntu/docker/ii_vue/

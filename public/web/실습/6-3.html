@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span.number {border: 1px solid black; display: inline-block; width: 40px; height: 40px; font-size: 25px; text-align: center;}
+        #no1:hover {background: red;}
+    </style>
+    <script>
+        function bghover (obj, color) {
+            obj.style.background=color
+        }
+        function big(x, y) {
+            if(parseInt(x)>parseInt(y)) {
+                return x
+            }
+            else {
+                return y
+            }
+        }
+        function pr(s, n) {
+            for(let i=0; i<n; i++) {
+                document.write(s)
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>마우스를 올려 보세요</h1>
+    <hr>
+    <div>
+        여기에 마우스를 올리면 배경색이 노란색으로 변합니다.
+    </div>
+    <br>
+    <div>
+        <span id="no1" class="number"> 1 </span>
+        <span id="no2" class="number" onmouseover="this.style.background='blue'" onmouseout="this.style.background='white'"> 2 </span>
+        <span id="no3" class="number" onmouseover="bghover(this, 'green')" onmouseout="bghover(this, 'white')"> 3 </span>
+    </div>
+    <script>
+        let b = big("625", "555")
+        document.write("큰수=" + b + "<br>")
+        pr('%', 5)
+    </script>
+    <script>/*
+        let p = prompt("월화수목금토일 중에서 입력하세요")
+        if (p == "월" || p == "화" || p == "수" || p == "목" || p == "금") {
+            document.write(p + "요일은 출근")
+        }
+        else if (p == "토" || p == "일") {
+            document.write(p + "요일은 휴일")
+        }*/
+    </script>
+    <br><br>
+    <hr>
+    <div>
+        <script>
+            function wd(day) {
+                document.write(day + "요일은 서비스를 하는 날입니다.<br>")
+                this.style.color = "blue"
+                day.style.background = "red"
+            }
+            let day = prompt("월화수목금토일 중에서 입력하세요")
+            switch(day) {
+                case "월":
+                case "화":
+                case "수":
+                case "목":
+                case "금":
+                    wd(day)
+                    document.write('<p style="color:red">' + day + '요일은 서비스를 하는 날입니다.</p><br>')
+                    break
+                case "토":
+                case "일":
+                    we(day)
+                    break
+                default:
+                    document.write("잘못입력<br>")
+            }
+        </script>
+        <span id="mon" class="number">월</span>
+        <span id="tue" class="number">화</span>
+        <span id="wed" class="number">수</span>
+        <span id="thu" class="number">목</span>
+        <span id="fri" class="number">금</span>
+        <span id="sat" class="number">토</span>
+        <span id="sun" class="number">일</span>
+    </div>
+</body>
+</html>

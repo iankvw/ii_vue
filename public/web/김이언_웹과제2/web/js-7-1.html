@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 7-1</title>
+    <link href="files/mystyle.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h3>난수 10개 생성</h3>
+    <hr>
+    <script>
+        let n = [] //배열 n 선언
+        for (let i = 0; i < 10; i++) { //난수 10개 생성
+            n[i] = Math.floor(Math.random() * 100) + 1
+        }
+        let mx = n[0]
+        for (let i = 0; i < 10; i++) { //배열 출력
+            document.write(n[i] + " ")
+            if (mx < n[i]) //큰 수 찾기
+                mx = n[i]
+        }
+        document.write("<hr>제일 큰 수는 " + mx + "<hr>")
+        n.sort((a, b) => a - b) //배열 정렬
+        for (let i = 0; i < 10; i++) { //배열 출력
+            document.write(n[i] + " ")
+        }
+    </script>
+</body>
+
+</html>

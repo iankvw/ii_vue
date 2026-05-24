@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간고사</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Emblema+One);
+        @import url(https://fonts.googleapis.com/css?family=Freckle+Face);
+
+        .ui-content {
+            margin: auto 6px;
+        }
+
+        @media only screen and (orientation: landscape) {
+            .ui-content {
+                max-width: 100vmin;
+                margin: 0 auto;
+                left: 0 ;
+                right: 0 ;
+            }
+            .ui-header, .ui-footer {
+                max-width: 100vw;
+            }
+            #content0 { max-width: 80%; }
+            #section01 { float: left; width: 49%; }
+            #section02 { float: right; width: 49%; }
+            #id4421 { background-color: purple!important; color: white!important; }
+        }
+
+        .tab-content {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 0px;
+        }
+        pre { white-space: pre-wrap; }
+
+        nav {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="panel" id="commonPanel" data-display="overlay" data-theme="a">
+        <ul data-role="listview">
+            <li data-role="list-divider">하이브리드앱프로그래밍</li>
+            <li><a href="#page0">홈</a></li>
+            <li><a href="#page1">CH 01 모바일 웹 환경</a></li>
+            <li><a href="#page2">CH 02 HTML5 기초 다지기</a></li>
+            <li><a href="#page3">CH 03 CSS3 기초 다지기</a></li>
+            <li><a href="#page4">CH 04 모바일 웹 개발</a></li>
+            <li><a href="#page5">CH 05 제이쿼리 모바일 기초 다지기</a></li>
+            <li><a href="#page6">CH 06 제이쿼리 모바일 헤더바와 푸터바</a></li>
+            <li><a href="#page7">CH 07 제이쿼리 모바일 버튼과 리스트뷰</a></li>
+        </ul>
+    </div>
+    <script>$(function() { $( "#commonPanel" ).panel().enhanceWithin(); });</script>
+
+    <div data-role="page" id="page0">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>하이브리드앱프로그래밍</h1>
+        </header>
+
+        <main data-role="content" id="content0">
+            <section id="section01">
+                <h2>요약</h2>
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#page1">CH 01 모바일 웹 환경</a></li>
+                    <li><a href="#page2">CH 02 HTML5 기초 다지기</a></li>
+                    <li><a href="#page3">CH 03 CSS3 기초 다지기</a></li>
+                    <li><a href="#page4">CH 04 모바일 웹 개발</a></li>
+                    <li><a href="#page5">CH 05 제이쿼리 모바일 기초 다지기</a></li>
+                    <li><a href="#page6">CH 06 제이쿼리 모바일 헤더바와 푸터바</a></li>
+                    <li><a href="#page7">CH 07 제이쿼리 모바일 버튼과 리스트뷰</a></li>
+                </ul>
+            </section>
+            <section id="section02">
+                <h2>과제</h2>
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="hw3_1.html" data-ajax="false">📂 CSS3 기본</a></li>
+                    <li><a href="hw3_2.html" data-ajax="false">📂 CSS Box model</a></li>
+                    <li><a href="hw4_1.html" data-ajax="false">📂 미디어쿼리</a></li>
+                    <li><a href="hw6_1.html" data-ajax="false">📂 Jquery Mobile 헤더 푸터</a></li>
+                    <li><a href="hw7_1.html" data-ajax="false">📂 Jquery Mobile 버튼 리스트뷰</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div data-role="page" id="page1">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>모바일 웹 환경</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section11" data-ajax="false">웹 패러다임의 변화</a></li>
+                    <li><a href="#section12" data-ajax="false">웹 표준</a></li>
+                    <li><a href="#section13" data-ajax="false">웹 브라우저</a></li>
+                    <li><a href="#section14" data-ajax="false">모바일 앱의 개발 방식</a></li>
+                </ul>
+            </nav>
+
+            <section id="section11">
+                <h2>웹 패러다임의 변화</h2>
+                <strong>팀 버너스 리</strong>: HTTP, HTML 표준 등을 제안
+                <br>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab111" class="ui-btn-active ui-state-persist">웹 1.0</a></li>
+                            <li><a href="#tab112">웹 2.0</a></li>
+                            <li><a href="#tab113">웹 3.0</a></li>
+                        </ul>
+                    </div>
+                    <div id="tab111" class="tab-content">
+                        <ul>
+                            <li>포털 중심</li>
+                            <li>일방적인 정보 제공</li>
+                            <li>정보소비자</li>
+                        </ul>
+                    </div>
+                    <div id="tab112" class="tab-content">
+                        <ul>
+                            <li>플랫폼 중심</li>
+                            <li>공유와 참여 가능</li>
+                            <li>정보생산자/소비자</li>
+                        </ul>
+                    </div>
+                    <div id="tab113" class="tab-content">
+                        <ul>
+                            <li>시맨틱 웹</li>
+                            <li>개인 맞춤형</li>
+                            <li>참여자/의사결정자</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section12">
+                <h2>웹 표준</h2>
+                기기나 브라우저의 종류에 상관없이 누구나 동일한 서비스를 받기 위해 반드시 필요
+                <h3>HTML5의 특징</h3>
+                <ul>
+                    <li><strong>플랫폼화</strong>: 단순한 언어를 넘어 웹 애플리케이션 개발을 위한 플랫폼 기술로 확장</li>
+                    <li><strong>자체 기능 강화</strong>: 플러그인(ActiveX 등) 없이도 비디오, 오디오 등 미디어를 재생하고 캔버스(Canvas) 등을 통해 그래픽 구현이 가능</li>
+                    <li><strong>시맨틱 웹</strong>: 태그에 의미를 부여하여 구조적인 문서 작성을 지원</li>
+                </ul>
+            </section>
+
+            <section id="section13">
+                <h2>웹 브라우저</h2>
+                단순한 번역기(interpreter) 이상의 역할을 수행
+                <h3>브라우저 엔진의 처리 과정</h3>
+                <ol>
+                    <li><strong>DOM 트리 구성</strong>: HTML을 분석하여 메모리에 트리 구조를 만듬</li>
+                    <li><strong>렌더 트리 구성</strong>: CSS 스타일을 적용하여 실제 화면에 보일 엘리먼트를 선별</li>
+                    <li><strong>레이아웃 구성</strong>: 각 요소의 위치와 크기를 계산하여 배치</li>
+                    <li><strong>페인팅</strong>: 브라우저 창에 실제 내용을 그림</li>
+                </ol>
+                <strong>MVC 구조</strong>: HTML(Model), CSS(View), JavaScript(Controller)가 상호작용하는 구조
+            </section>
+
+            <section id="section14">
+                <h2>모바일 앱의 개발 방식</h2>
+                <ul>
+                    <li><strong>모바일 웹</strong>: 스마트폰 브라우저로 접속하는 웹 페이지</li>
+                    <li><strong>모바일 앱</strong>: 기기에 설치되어 실행되는 응용 프로그램</li>
+                    <li><strong>하이브리드 앱</strong>: 표준 웹 기술로 웹앱을 개발하고 이를 다시 네이티브앱으로 변환한 다음 배포하는 방식</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid1" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page0">홈</a></li>
+                    <li><a href="#page1" class="ui-btn-active ui-state-persist">CH 01</a></li>
+                    <li><a href="#page2">CH 02</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    
+    <div data-role="page" id="page2">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>HTML5 기초 다지기</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section21" data-ajax="false">HTML5 문서의 구조</a></li>
+                    <li><a href="#section22" data-ajax="false">글자 태그</a></li>
+                    <li><a href="#section23" data-ajax="false">목록 태그</a></li>
+                    <li><a href="#section24" data-ajax="false">테이블 태그</a></li>
+                    <li><a href="#section25" data-ajax="false">링크 태그, 미디어 태그</a></li>
+                    <li><a href="#section26" data-ajax="false">시맨틱 태그</a></li>
+                </ul>
+            </nav>
+            
+            <section id="section21">
+                <h2>HTML5 문서의 구조</h2>
+                <ul>
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong>: 문서 형식을 HTML5로 지정</li>
+                    <li><strong>&lt;html&gt;</strong>: 전체 문서의 시작과 끝을 나타내며, lang="ko" 속성으로 주 언어 설정</li>
+                    <li><strong>&lt;head&gt;</strong>: 문서의 제목, 인코딩 설정, 스타일 및 스크립트 정보</li>
+                    <li><strong>&lt;body&gt;</strong>: 브라우저 화면에 실제로 나타나는 모든 콘텐츠</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab211" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab212">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab211" class="tab-content">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;HTML5 문서 제목&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;HTML이란?&lt;/h1&gt;
+    HyperText Markup Language의 약어
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    <div id="tab212" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">HTML5 문서 제목</div>
+                        <h1>HTML이란?</h1>
+                        HyperText Markup Language의 약어
+                    </div>
+                </div>
+            </section>
+            
+            <section id="section22">
+                <h2>글자 태그</h2>
+                <ul>
+                    <li><strong>제목 태그</strong>: &lt;h1&gt;부터 &lt;h6&gt;까지 사용, 숫자가 작을수록 글자가 크고 중요도가 높음</li>
+                    <li><strong>단락 및 줄바꿈</strong>: &lt;p&gt;(단락 구분), &lt;br&gt;(강제 줄바꿈), &lt;hr&gt;(수평 가로선) 등</li>
+                    <li><strong>기타</strong>: &lt;strong&gt;(굵게 강조), &lt;em&gt;(이탤릭체 강조) 등</li>
+                </ul>
+            </section>
+
+            <section id="section23">
+                <h2>목록 태그</h2>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab231" class="ui-btn-active ui-state-persist">&lt;ol&gt;</a></li>
+                            <li><a href="#tab232">&lt;ul&gt;</a></li>
+                        </ul>
+                    </div>
+                    <div id="tab231" class="tab-content">
+                        <pre>&lt;ol&gt;
+    &lt;li&gt;순서가 있는 목록&lt;/li&gt;
+    &lt;li&gt;숫자나 알파벳 순서가 매겨짐&lt;/li&gt;
+    &lt;li&gt;&lt;li&gt;: &lt;ol&gt;이나 &lt;ul&gt; 내부에서 개별 항목 정의&lt;li&gt;
+&lt;/ol&gt;</pre>
+                        <ol>
+                            <li>순서가 있는 목록</li>
+                            <li>숫자나 알파벳 순서가 매겨짐</li>
+                            <li><strong>&lt;li&gt;</strong>: &lt;ol&gt;이나 &lt;ul&gt; 내부에서 개별 항목 정의</li>
+                        </ol>
+                    </div>
+                    <div id="tab232" class="tab-content">
+                        <pre>&lt;ul&gt;
+    &lt;li&gt;순서가 없는 목록&lt;/li&gt;
+    &lt;li&gt;각 항목 앞에 불릿(•)이 붙음&lt;/li&gt;
+    &lt;li&gt;&lt;li&gt;: &lt;ol&gt;이나 &lt;ul&gt; 내부에서 개별 항목 정의&lt;li&gt;
+&lt;/ul&gt;</pre>
+                        <ul>
+                            <li>순서가 없는 목록</li>
+                            <li>각 항목 앞에 불릿(•)이 붙음</li>
+                            <li><strong>&lt;li&gt;</strong>: &lt;ol&gt;이나 &lt;ul&gt; 내부에서 개별 항목 정의</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section24">
+                <h2>테이블 태그</h2>
+                <ul>
+                    <li><strong>&lt;table&gt;</strong>: 표를 생성</li>
+                    <li><strong>&lt;tr&gt;</strong>: 표 안에 행(table row)을 생성</li>
+                    <li><strong>&lt;th&gt;</strong>: 행 안에 제목 열(table header)을 표시</li>
+                    <li><strong>&lt;td&gt;</strong>: 행 안에 실제 내용(table data)을 갖는 열을 표시</li>
+                    <li><strong>&lt;thead&gt;</strong>: 표 머리 표시 행들을 그룹화</li>
+                    <li><strong>&lt;tfoot&gt;</strong>: 표 내용 표시 행들을 그룹화</li>
+                    <li><strong>&lt;tbody&gt;</strong>: 표 꼬리 표시 행들을 그룹화</li>
+                    <li><strong>&lt;caption&gt;</strong>: 표 제목을 표시</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab241" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab242">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab241" class="tab-content">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;셀(1,1)&lt;/th&gt;
+            &lt;th&gt;셀(1,2)&lt;/th&gt;
+            &lt;th&gt;셀(1,3)&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="3"&gt;셀(2,1)&lt;/td&gt;
+            &lt;td&gt;셀(2,2)&lt;/td&gt;
+            &lt;td&gt;셀(2,3)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2"&gt;셀(3,1)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;셀(4,1)&lt;/td&gt;
+            &lt;td&gt;셀(4,2)&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+                    <div id="tab242" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">테이블 태그</div>
+                        <br>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>셀(1,1)</th>
+                                    <th>셀(1,2)</th>
+                                    <th>셀(1,3)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">셀(2,1)</td>
+                                    <td>셀(2,2)</td>
+                                    <td>셀(2,3)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">셀(3,1)</td>
+                                </tr>
+                                <tr>
+                                    <td>셀(4,1)</td>
+                                    <td>셀(4,2)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section25">
+                <h2>링크 태그, 미디어 태그</h2>
+                웹의 핵심인 연결성과 시각적 요소 담당
+                <ul>
+                    <li><strong>&lt;a&gt;</strong>: href 속성을 통해 다른 문서나 웹사이트로 연결. target="_blank" 속성으로 새 창에서 열기를 지정 가능</li>
+                    <li><strong>&lt;img&gt;</strong>: 이미지 삽입. src(경로)와 alt(대체 텍스트) 속성 필수</li>
+                    <li><strong>&lt;audio&gt;</strong>: controls 속성은 화면에 player를 표시하는 역할</li>
+                    <li><strong>&lt;video&gt;</strong>: autoplay 속성으로 비디오 자동 재생</li>
+                    <li><strong>&lt;source&gt;</strong>: &lt;audio&gt;, &lt;video&gt;태그의 하위 태그로 사용</li>
+                </ul>
+            </section>
+
+            <section id="section26">
+                <h2>시맨틱 태그</h2>
+                문서의 각 부분이 어떤 역할을 하는지 의미를 부여하여 검색 엔진 최적화(SEO)와 접근성을 높임
+                <ul>
+                    <li><strong>&lt;header&gt;</strong>: 상단 영역(로고, 메뉴 등)</li>
+                    <li><strong>&lt;nav&gt;</strong>: 내비게이션 링크 모음</li>
+                    <li><strong>&lt;section&gt;</strong>: 주제별 콘텐츠 영역</li>
+                    <li><strong>&lt;article&gt;</strong>: 독립적인 개별 콘텐츠(뉴스 기사, 블로그 포스트)</li>
+                    <li><strong>&lt;aside&gt;</strong>: 주요 내용 외의 사이드바 정보</li>
+                    <li><strong>&lt;footer&gt;</strong>: 하단 영역(저작권, 연락처 등)</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab261" class="ui-btn-active ui-state-persist">기존 레이아웃 방식</a></li>
+                            <li><a href="#tab262">시맨틱 레이아웃 방식</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab261" class="tab-content">&lt;!-- 기존 레이아웃 방식 --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;과거 HTML 레이아웃&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="header"&gt; . . . &lt;/div&gt;
+    &lt;div id="nav"&gt; . . . &lt;/div&gt;
+    &lt;div id="sidebar"&gt; . . . &lt;/div&gt;
+    &lt;div id="section1"&gt; . . .
+        &lt;div id="article"&gt; . . . &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="section2"&gt; . . .
+        &lt;div id="section2_1&gt;
+            . . .
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="footer"&gt; . . . &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                <pre id="tab262" class="tab-content">&lt;!-- 시맨틱 레이아웃 방식 --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;HTML5 레이아웃&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt; . . . &lt;/header&gt;
+    &lt;nav&gt; . . . &lt;/nav&gt;
+    &lt;aside&gt; . . . &lt;/aside&gt;
+    &lt;section id="section1"&gt; . . .
+        &lt;article&gt; . . . &lt;/article&gt;
+    &lt;/section&gt;
+    &lt;section id="section2"&gt; . . .
+        &lt;section id="section2_1"&gt;
+            . . .
+        &lt;/section&gt;
+    &lt;/section&gt;
+    &lt;footer&gt; . . . &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid2" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page1">CH 01</a></li>
+                    <li><a href="#page2" class="ui-btn-active ui-state-persist">CH 02</a></li>
+                    <li><a href="#page3">CH 03</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page3">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>CSS3 기초 다지기</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section31" data-ajax="false">CSS</a></li>
+                    <li><a href="#section32" data-ajax="false">스타일 선언 형식</a></li>
+                    <li><a href="#section33" data-ajax="false">선택자 유형</a></li>
+                    <li><a href="#section34" data-ajax="false">스타일 적용 우선순위</a></li>
+                    <li><a href="#section35" data-ajax="false">주요 스타일 속성</a></li>
+                    <li><a href="#section36" data-ajax="false">박스 모델(box model)</a></li>
+                    <li><a href="#section37" data-ajax="false">레이아웃과 화면 배치</a></li>
+                    <li><a href="#section38" data-ajax="false">웹 폰트</a></li>
+                </ul>
+            </nav>
+
+            <section id="section31">
+                <h2>CSS</h2>
+                HTML 문서에 적용하는 표준 스타일시트 언어로, 문서의 구조(HTML)와 표현(CSS)을 분리하여 관리할 수 있게 함
+                <ul>
+                    <li><strong>확장성</strong>: 표현 기능을 다양하게 확장하거나 변경하기 용이</li>
+                    <li><strong>편의성</strong>: 레이아웃 구성을 훨씬 간편하게 할 수 있음</li>
+                    <li><strong>재사용성</strong>: 독립된 모듈로 작성하여 여러 HTML 문서에 공통으로 적용 가능</li>
+                    <li><strong>생산성</strong>: 업무 분담을 통한 전문화와 협업이 가능해져 생산성 향상</li>
+                </ul>
+            </section>
+            
+            <section id="section32">
+                <h2>스타일 선언 형식</h2>
+                <strong>형식</strong>: 선택자 { 속성이름 : 속성값 ; }
+                <ul>
+                    <li><strong>선택자</strong>: 스타일을 적용할 대상(태그, ID, 클래스 등)을 지정</li>
+                    <li><strong>속성 블록</strong>: 중괄호 { } 안에 색상, 크기 등 구체적인 스타일을 명세</li>
+                </ul>
+            </section>
+
+            <section id="section33">
+                <h2>선택자 유형</h2>
+                <ul>
+                    <li><strong>전체 선택자 (*)</strong>: 문서 내 모든 태그 선택</li>
+                    <li><strong>태그 선택자 (태그명)</strong>: 특정 태그(예: p, h1)를 모두 선택</li>
+                    <li><strong>아이디 선택자 (#)</strong>: 고유한 ID 값을 가진 요소 하나만 선택</li>
+                    <li><strong>클래스 선택자 (.)</strong>: 특정 클래스 그룹에 속한 여러 요소 선택</li>
+                    <li><strong>자식 선택자 (>)</strong>: 부모 바로 아래의 하위 태그만 선택</li>
+                    <li><strong>자손 선택자 (공백)</strong>: 부모 안의 모든 하위 태그 포함</li>
+                    <li><strong>형제 선택자 (+, ~)</strong>: 인접한 형제(+)나 뒤에 오는 모든 형제(~) 선택</li>
+                    <li><strong>상태 선택자</strong>: 조건을 나타내는 예약어를 명세 (선택자:link, 선택자:visited, 선택자:hover 등)</li>
+                </ul>
+            </section>
+
+            <section id="section34">
+                <h2>스타일 적용 우선순위</h2>
+                <ol>
+                    <li><strong>선언 방식 기준</strong>: 인라인 방식 > 내부 방식 > 외부 방식 > 임포트 방식</li>
+                    <li><strong>선택자 기준</strong>: 아이디 선택자 > 클래스 선택자 > 계층 선택자 > 태그 선택자</li>
+                    <li><strong>기타 규칙</strong>: 하위 엘리먼트에서 직접 정의한 스타일이 상속받은 스타일보다 우선</li>
+                </ol>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab341" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab342">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab341" class="tab-content">. . .
+&lt;style&gt;
+    body { background-color: yellow; }
+    div { width: 80%; padding: 12px; margin: auto; }
+    #id1 { background-color: magenta; }
+    .class1 { background-color: cyan; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    a
+    &lt;div id="id1"&gt;
+        b
+        &lt;div class="class1"&gt;
+            c
+        &lt;/div&gt;
+        &lt;div class="class1" style="background-color: blue;"&gt;
+            d
+. . .</pre>
+                    <div id="tab342" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">스타일 적용 우선순위</div>
+                        <div style="background-color: yellow; padding: 12px; margin: auto;">
+                            a
+                            <div style="width: 80%; background-color: magenta; padding: 12px; margin: auto;">
+                                b
+                                <div style="width: 80%; background-color: cyan; padding: 12px; margin: auto;">
+                                    c
+                                </div>
+                                <div style="width: 80%; background-color: blue; padding: 12px; margin: auto;">
+                                    d
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section35">
+                <h2>주요 스타일 속성</h2>
+                <ul>
+                    <li><strong>글자</strong>: font-family(글꼴), font-size(크기), font-weight(굵기), text-shadow(그림자) 등</li>
+                    <li><strong>색상</strong>: color(글자색), background-color(배경색), background-image(배경 이미지) 등</li>
+                    <li><strong>단위</strong>: 상대 단위(%, em, px 등), 절대 단위(cm, mm, pt 등)</li>
+                    <li><strong>목록</strong>: list-style-type으로 불렛 기호 설정, list-style-image로 이미지 사용</li>
+                    <li><strong>테이블</strong>: border-collapse(테이블 선 합치기), caption-side(제목 위치) 등</li>
+                </ul>
+            </section>
+
+            <section id="section36">
+                <h2>박스 모델(box model)</h2>
+                모든 엘리먼트는 사각형 모양의 공간을 차지하며, 이를 박스 모델이라 함
+                <ul>
+                    <li><strong>구조</strong>: 내용(Content) → 안쪽 여백(Padding) → 경계선(Border) → 바깥 여백(Margin) 순으로 구성</li>
+                    <li><strong>여백 지정 순서</strong>: 위(Top) → 오른쪽(Right) → 아래(Bottom) → 왼쪽(Left) 시계 방향 순서</li>
+                </ul>
+            </section>
+
+            <section id="section37">
+                <h2>레이아웃과 화면 배치</h2>
+                <p><strong>컨테이너</strong>: 자식 엘리먼트를 포함하는 부모 엘리먼트로, 자식들의 위치 기준이 됨</p>
+                <p>
+                    <strong>Position</strong>:
+                    <ul>
+                    <li><strong>static</strong>: 표준 방식의 정적 위치</li>
+                    <li><strong>absolute</strong>: 부모 컨테이너를 기준으로 절대 위치 지정</li>
+                    <li><strong>fixed</strong>: 브라우저 창을 기준으로 고정된 위치에 배치</li>
+                    <li><strong>relative</strong>: 원래 있어야 할 위치를 기준으로 상대적 이동</li>
+                </ul>
+                </p>
+                <p><strong>Float</strong>: 박스를 화면에 띄워 좌우로 정렬하거나 이미지와 텍스트를 함께 배치할 때 유용</p>
+            </section>
+
+            <section id="section38">
+                <h2>웹 폰트</h2>
+                <p>사용자의 컴퓨터에 특정 글꼴이 없어도 웹에서 직접 폰트를 다운로드해 보여줌</p>
+                <p><strong>선언</strong>: @font-face를 사용하여 글꼴 이름과 파일 경로(src)를 지정</p>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab381" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab382">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab381" class="tab-content">. . .
+&lt;link href='http://fonts.googleapis.com/css?family=Emblema+One' rel='stylesheet'&gt;
+&lt;style&gt;
+    @import url(http://fonts.googleapis.com/css?family=Freckle+Face);
+
+    @font-face {
+        font-family: 'Nanum';
+        src: url('NanumPenScript-Regular.ttf');
+    }
+
+    p { font-size: 28px; }
+    p.cls1 { font-family: 'Emblema One'; }
+    p.cls2 { font-family: 'Freckle Face'; }
+    p.cls3 { font-family: 'Nanum', serif; }
+&lt;/style&gt;
+. . .</pre>
+                    <div id="tab382" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">웹 폰트</div>
+                        <p style="font-size: 28px;">Default Font Example</p>
+                        <p style="font-size: 28px; font-family: Emblema One;">&lt;link&gt; Example</p>
+                        <p style="font-size: 28px; font-family: Freckle Face;">@import Example</p>
+                        <p style="font-size: 28px; font-family: serif;">@font-face Example</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid3" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page2">CH 02</a></li>
+                    <li><a href="#page3" class="ui-btn-active ui-state-persist">CH 03</a></li>
+                    <li><a href="#page4">CH 04</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page4">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>모바일 웹 개발</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section41" data-ajax="false">뷰포트(viewport)</a></li>
+                    <li><a href="#section42" data-ajax="false">뷰포트 메타 태그</a></li>
+                    <li><a href="#section43" data-ajax="false">미디어 유형</a></li>
+                    <li><a href="#section44" data-ajax="false">미디어 쿼리</a></li>
+                </ul>
+            </nav>
+
+            <section id="section41">
+                <h2>뷰포트(viewport)</h2>
+                화면 요소가 보여지는 영역
+                <ul>
+                    <li><strong>레이아웃 뷰포트</strong>: 장치의 전체 화면 해상도에 해당하는 영역. 실제 브라우저 창 크기와는 무관</li>
+                    <li><strong>비주얼 뷰포트</strong>: 전체 페이지 중 현재 화면에 실제로 보이는 영역</li>
+                </ul>
+                모바일 브라우저는 최적화되지 않은 페이지도 모두 보여주기 위해 기본 뷰포트를 실제 화면보다 크게(보통 980px) 설정<br>
+                👉 글자가 매우 작게 보이는 문제가 발생
+            </section>
+
+            <section id="section42">
+                <h2>뷰포트 메타 태그</h2>
+                &lt;meta&gt; 태그를 사용하여 브라우저에 뷰포트 정보를 제공함으로써 작은 글씨 문제 해결
+                <ul>
+                    <li><strong>width</strong>: 뷰포트 너비 (예: device-width는 장치의 실제 너비)</li>
+                    <li><strong>initial-scale</strong>: 초기 화면 확대 비율 (기본값 1.0)</li>
+                    <li><strong>user-scalable</strong>: 사용자의 확대/축소 가능 여부 (yes/no)</li>
+                </ul>
+            </section>
+
+            <section id="section43">
+                <h2>미디어 유형</h2>
+                미디어 종류에 따라 각기 다른 스타일시트를 적용
+                <ul>
+                    <li><strong>all</strong>: 모든 장치 (기본값)</li>
+                    <li><strong>screen</strong>: 컴퓨터, 태블릿, 스마트폰 화면</li>
+                    <li><strong>print</strong>: 인쇄 장치</li>
+                </ul>
+                <p>
+                    <h3>@media 규칙을 이용하는 방법</h3>
+                    <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;style&gt;
+    @media screen {
+        * { font-family: serif; font-size: 24px; } }
+    @media print {
+        * { font-family: sans-serif; font-size: 8px; } }
+&lt;/style&gt;</pre>
+                </p>
+                <p>
+                    <h3>&lt;link&gt; 태그를 이용하는 방법</h3>
+                    <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;형식2&lt;/title&gt;
+    &lt;link rel="stylesheet" href="screen.css" media="screen"/&gt;
+    &lt;link rel="stylesheet" href="print.css" media="print"/&gt;
+&lt;/head&gt;</pre>
+                </p>
+                <p>
+                    <h3>@import 규칙을 이용하는 방법</h3>
+                    <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;style&gt;
+    @import url(screen.css) screen;
+    @import url(print.css) print;
+&lt;/style&gt;</pre>
+                </p>
+                <p>
+                    <h3>&lt;style&gt; 태그를 이용하는 방법</h3>
+                    <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;style media="screen"&gt;
+    * { font-family: serif; font-size: 24px; }
+&lt;/style&gt;
+&lt;style media="print">
+    * { font-family: sans-serif; font-size: 8px; }
+&lt;/style&gt;</pre>
+                </p>
+            </section>
+
+            <section id="section44">
+                <h2>미디어 쿼리</h2>
+                <p>장치의 해상도, 너비, 회전 상태 등 보다 상세한 조건에 따라 스타일을 적용</p>
+                <p><strong>기본 구조</strong>: @media [only 또는 not] 미디어타입 and (조건) { ... }</p>
+                <p>
+                    <strong>주요 속성</strong>
+                    <ul>
+                        <li><strong>width, height</strong>: 웹 페이지의 가로 너비 및 세로 높이</li>
+                        <li><strong>device-width, device-height</strong>: 장치의 물리적 해상도 너비 및 높이</li>
+                        <li><strong>orientation</strong>: 장치의 회전 상태 (portrait 세로, landscape 가로)</li>
+                    </ul>
+                </p>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab441" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab442">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab441" class="tab-content">&lt;style&gt;
+    @media only screen and (orientation: portrait) {
+        div { background-color: lightyellow; color: black; }
+    }
+    @media only screen and (orientation: landscape) {
+        div { background-color: purple; color: white; }
+    }
+&lt;/style&gt;</pre>
+                    <div id="tab442" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">미디어 쿼리</div>
+                        <div id="id4421" style="background-color: lightyellow; color: black;">
+                            <h1>미디어 쿼리</h1>
+                            <h2>반응형 웹에 대한 예</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid4" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page3">CH 03</a></li>
+                    <li><a href="#page4" class="ui-btn-active ui-state-persist">CH 04</a></li>
+                    <li><a href="#page5">CH 05</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page5">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>제이쿼리 모바일 기초 다지기</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section51" data-ajax="false">모바일 웹앱과 프레임워크</a></li>
+                    <li><a href="#section52" data-ajax="false">제이쿼리 모바일 프레임워크</a></li>
+                    <li><a href="#section53" data-ajax="false">제이쿼리 모바일 기본 구조</a></li>
+                    <li><a href="#section54" data-ajax="false">화면 구성</a></li>
+                    <li><a href="#section55" data-ajax="false">페이지 연결 방식</a></li>
+                    <li><a href="#section56" data-ajax="false">페이지 전환 효과</a></li>
+                    <li><a href="#section57" data-ajax="false">외부 프로그램 연동</a></li>
+                </ul>
+            </nav>
+
+            <section id="section51">
+                <h2>모바일 웹앱과 프레임워크</h2>
+                <ul>
+                    <li><strong>모바일 웹앱</strong>: 네이티브 앱 같은 모바일 웹 페이지</li>
+                    <li>다양한 모바일 장치로의 배포가 쉽고 네이티브 앱과 유사한 인터페이스 제공</li>
+                    <li><strong>사용자 경험(UX) 강조</strong>: 작은 화면에서 효율적인 상호 작용을 위해 UX가 매우 중요</li>
+                </ul>
+            </section>
+
+            <section id="section52">
+                <h2>제이쿼리 모바일 프레임워크</h2>
+                <ul>
+                    <li>웹 브라우저 안에서 동작하는 웹앱을 개발하기 위한 통합 UI 프레임워크</li>
+                    <li><strong>연동 방식</strong>: HTML5 문서 내에 URL을 추가하는 CDN 방식, 파일을 직접 내려받는 다운로드 방식</li>
+                    <li>CSS3 파일, 제이쿼리 스크립트 파일, 제이쿼리 모바일 스크립트 파일 순으로 HTML5 마크업에 포함되어야 함</li>
+                </ul>
+            </section>
+
+            <section id="section53">
+                <h2>제이쿼리 모바일 기본 구조</h2>
+                제이쿼리 모바일의 페이지는 하나의 화면 단위를 의미, data-role 속성을 사용하여 구조를 정의
+                <ul>
+                    <li><strong>page</strong>: 전체 화면 영역을 감싸는 컨테이너</li>
+                    <li><strong>header</strong>: 페이지 상단의 툴바 영역</li>
+                    <li><strong>content</strong>: 실제 페이지 내용이 표시되는 중앙 영역</li>
+                    <li><strong>footer</strong>: 페이지 하단의 툴바 영역</li>
+                </ul>
+            </section>
+
+            <section id="section54">
+                <h2>화면 구성</h2>
+                <ul>
+                    <li><strong>단일 페이지 템플릿</strong>: 하나의 HTML 문서에 하나의 페이지만 정의</li>
+                    <li><strong>다중 페이지 템플릿</strong>: 하나의 HTML 문서에 여러 페이지를 정의. 첫 번째 페이지만 먼저 보이고 나머지는 링크를 통해 Ajax 방식으로 전환</li>
+                </ul>
+            </section>
+
+            <section id="section55">
+                <h2>페이지 연결 방식</h2>
+                <p>
+                    <h3>내부 페이지 연결</h3>
+                    <ul>
+                        <li>하나의 HTML5 파일 안에 여러 페이지를 명세하여 서로 연결</li>
+                        <li>다중 페이지 템플릿을 적용하는 형태</li>
+                        <li>각 내부 페이지들은 Ajax를 통해 내부 링크 방식으로 연결됨</li>
+                    </ul>
+                </p>
+                <p>
+                    <h3>외부 페이지의 내부 링크 방식</h3>
+                    <ul>
+                        <li>DOM 트리를 새롭게 생성하지 않고 대신 연결된 외부 페이지를 현재의 DOM 트리에 추가</li>
+                        <li>DOM 트리에서 중복되는 엘리먼트 노드는 제거됨(head, body)</li>
+                        <li>Ajax에 의해 자연스러운 화면 전환 애니메이션 적용 가능</li>
+                    </ul>
+                </p>
+                <p>
+                    <h3>외부 페이지의 외부 링크 방식</h3>
+                    <ul>
+                        <li>Ajax를 사용하지 않는 고전적 방식</li>
+                        <li>기존 DOM 트리를 제거하고 새로운 DOM 트리를 구성</li>
+                        <li>기존 코드와의 충돌을 차단할 때 유용함</li>
+                        <li>data-ajax="false", rel=”external”, target=”_blank” 사용</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section id="section56">
+                <h2>페이지 전환 효과</h2>
+                <ul>
+                    <li>CSS3를 사용, 페이지 이동 과정에서 화면 전환 효과를 제공</li>
+                    <li>&lt;a&gt; 링크 태그 안에 data-transition 속성값을 설정</li>
+                    <li>Data-direction="reverse": 역방향이나 반대 애니메이션</li>
+                    <li>내부링크 방식에만 애니메이션 적용됨</li>
+                </ul>
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#page51" data-transition="slide">slide (왼쪽으로 수평이동. 기본 효과)</a></li>
+                    <li><a href="#page51" data-transition="slideup">slideup (위쪽으로 수직이동)</a></li>
+                    <li><a href="#page51" data-transition="slidedown">slidedown (아래쪽으로 수직이동)</a></li>
+                    <li><a href="#page51" data-transition="pop">pop (페이지 확장)</a></li>
+                    <li><a href="#page51" data-transition="fade">fade (페이드인)</a></li>
+                    <li><a href="#page51" data-transition="flip">flip (페이지 회전)</a></li>
+                    <li><a href="#page51" data-transition="turn">turn (페이지 뒤집기)</a></li>
+                    <li><a href="#page51" data-transition="flow">flow (페이지 축소 후 좌우이동)</a></li>
+                </ul>
+            </section>
+
+            <section id="section57">
+                <h2>외부 프로그램 연동</h2>
+                &lt;a&gt; 태그의 href 속성값을 통해 모바일 기기의 기본 기능을 직접 호출
+                <ul>
+                    <li><strong>이메일</strong>: mailto:someone@example.com</li>
+                    <li><strong>전화번호</strong>: tel:00012345678</li>
+                    <li><strong>SMS</strong>: sms:00012345678</li>
+                    <li><strong>지도</strong>: 주소 또는 위성 좌표 URL</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid5" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page4">CH 04</a></li>
+                    <li><a href="#page5" class="ui-btn-active ui-state-persist">CH 05</a></li>
+                    <li><a href="#page6">CH 06</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page51">
+        <header data-role="header" data-position="fixed" data-add-back-btn="true">
+            <h1>What The Course Is About</h1>
+        </header>
+
+        <main data-role="content">
+            <h2>Native App vs. Web App vs. Hybrid App</h2>
+            <p>Hybrid Application is a software application that combines elements of both native apps and web applications. Hybrid apps are essentially web apps that have been put in a native app shell.</p>
+            <p>Hybrid apps are popular because they allow developers to write code for a mobile app once and still accommodate multiple platforms.</p>
+            <p>Because hybrid apps add an extra layer between the source code and the target platform, they may perform slightly slower than native or web versions of the same app.</p>
+        </main>
+    </div>
+
+    <div data-role="page" id="page6">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>제이쿼리 모바일 헤더바와 푸터바</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section61" data-ajax="false">툴바</a></li>
+                    <li><a href="#section62" data-ajax="false">헤더바</a></li>
+                    <li><a href="#section63" data-ajax="false">푸터바</a></li>
+                    <li><a href="#section64" data-ajax="false">네비게이션바</a></li>
+                    <li><a href="#section65" data-ajax="false">툴바 위치 설정</a></li>
+                </ul>
+            </nav>
+            
+            <section id="section61">
+                <h2>툴바</h2>
+                <ul>
+                    <li>페이지 이동이나 관련 기능을 모아 놓은 사용자 인터페이스</li>
+                    <li>링크, 버튼, 텍스트 등으로 구성된 바 형태</li>
+                    <li>제이쿼리 모바일은 두 종류의 기본 툴바를 제공</li>
+                </ul>
+            </section>
+            
+            <section id="section62">
+                <h2>헤더바</h2>
+                <div>
+                    <ul>
+                        <li>헤더바는 주로 페이지의 제목을 표시</li>
+                        <li>좌우에 최대 2개의 버튼을 배치할 수 있음</li>
+                        <li>헤더 컨테이너 영역 안에서 &lt;a&gt; 태그는 버튼으로 자동 변환되어 표시</li>
+                    </ul>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab621" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab622">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab621" class="tab-content">&lt;header data-role="header"&gt;
+    &lt;a href="#"&gt;버튼1&lt;/a&gt;
+    &lt;h1&gt;페이지제목&lt;/h1&gt;
+    &lt;a href="#"&gt;버튼2&lt;/a&gt;
+&lt;/header&gt;
+&lt;main data-role="content"&gt;
+    &lt;p&gt;content영역&lt;/p&gt;
+&lt;/main&gt;</pre>
+                        <div id="tab622" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">헤더바 생성하기</div>
+                            <div data-role="header">
+                                <a href="#">버튼1</a>
+                                <h1>페이지제목</h1>
+                                <a href="#">버튼2</a>
+                            </div>
+                            <div>
+                                <p>content영역</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>뒤로가기 버튼 추가</h3>
+                    <ul>
+                        <li>헤더 컨테이너에 data-add-backbtn="true" 속성 설정</li>
+                        <li>버튼의 문자열을 변경하려면 data-back-btn-text 속성을 추가</li>
+                        <li>뒤로가기 버튼(&lt;a data-rel=“back”&gt;)</li>
+                    </ul>
+                    <a href="#page61" data-role="button" data-icon="carat-r" data-iconpos="right">뒤로가기 버튼 예제</a>
+                </div>
+                <div>
+                    <h3>오른쪽 버튼 생성</h3>
+                    <p>첫 번째 버튼을 오른쪽에 표시하려면 class="ui-btn-right" 속성을 &lt;a&gt; 태그에 추가</p>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab623" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab624">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab623" class="tab-content">&lt;header data-role="header"&gt;
+    &lt;h1&gt;페이지제목&lt;/h1&gt;
+    &lt;a href="#" class="ui-btn-right"&gt;버튼1&lt;/a&gt;
+&lt;/header&gt;
+&lt;main data-role="content"&gt;
+    &lt;p&gt;content영역&lt;/p&gt;
+&lt;/main&gt;</pre>
+                        <div id="tab624" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">오른쪽 버튼 생성</div>
+                            <div data-role="header">
+                                <h1>페이지제목</h1>
+                                <a href="#" class="ui-btn-right">버튼1</a>
+                            </div>
+                            <div>
+                                <p>content영역</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section63">
+                <h2>푸터바</h2>
+                <div>
+                    <ul>
+                        <li>꼬리말이나 탐색 정보를 제공하는 툴바 또는 탭바를 포함</li>
+                        <li>푸터 컨테이너 안의 &lt;a&gt; 태그는 버튼으로 자동 변환</li>
+                        <li>왼쪽부터 하나씩 인라인 방식으로 추가되므로 여러 개의 버튼이 표시됨</li>
+                    </ul>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab631" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab632">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab631" class="tab-content">&lt;main data-role="content"&gt;
+    &lt;p&gt;content영역&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer data-role="footer"&gt;
+    &lt;a href="#"&gt;버튼1&lt;/a&gt;
+    &lt;a href="#"&gt;버튼2&lt;/a&gt;
+    &lt;a href="#"&gt;버튼3&lt;/a&gt;
+    &lt;a href="#"&gt;버튼4&lt;/a&gt;
+&lt;/footer&gt;</pre>
+                        <div id="tab632" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">푸터바 생성하기</div>
+                            <div>
+                                <p>content영역</p>
+                            </div>
+                            <div data-role="footer">
+                                <a href="#">버튼1</a>
+                                <a href="#">버튼2</a>
+                                <a href="#">버튼3</a>
+                                <a href="#">버튼4</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>연속 배치</h3>
+                    <p><strong>class="ui-bar"</strong>: 여유 공간을 둔 채 버튼을 나열</p>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab633" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab634">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab633" class="tab-content">&lt;main data-role="content"&gt;
+    &lt;p&gt;content영역&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer data-role="footer" class="ui-bar"&gt;
+    &lt;a href="#"&gt;버튼1&lt;/a&gt;
+    &lt;a href="#"&gt;버튼2&lt;/a&gt;
+    &lt;a href="#"&gt;버튼3&lt;/a&gt;
+    &lt;a href="#"&gt;버튼4&lt;/a&gt;
+&lt;/footer&gt;</pre>
+                        <div id="tab634" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">연속 배치</div>
+                            <div>
+                                <p>content영역</p>
+                            </div>
+                            <div data-role="footer" class="ui-bar">
+                                <a href="#">버튼1</a>
+                                <a href="#">버튼2</a>
+                                <a href="#">버튼3</a>
+                                <a href="#">버튼4</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>그룹 버튼</h3>
+                    <p><strong>data-role="controlgroup"</strong>: 버튼들을 그룹으로 모아 표시</p>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab633" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab634">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab633" class="tab-content">&lt;main data-role="content"&gt;
+    &lt;p&gt;content영역&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer data-role="footer" class="ui-bar"&gt;
+    &lt;div data-role="controlgroup" data-type="horizontal"&gt;
+        &lt;a href="#"&gt;버튼1&lt;/a&gt;
+        &lt;a href="#"&gt;버튼2&lt;/a&gt;
+        &lt;a href="#"&gt;버튼3&lt;/a&gt;
+        &lt;a href="#"&gt;버튼4&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</pre>
+                        <div id="tab634" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">연속 배치</div>
+                            <div>
+                                <p>content영역</p>
+                            </div>
+                            <div data-role="footer" class="ui-bar">
+                                <div data-role="controlgroup" data-type="horizontal">
+                                    <a href="#">버튼1</a>
+                                    <a href="#">버튼2</a>
+                                    <a href="#">버튼3</a>
+                                    <a href="#">버튼4</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section64">
+                <h2>네비게이션바</h2>
+                <div>
+                    <ul>
+                        <li>메뉴바나 탭바(Tab bar) 형태로 사용되며, 페이지 이동을 용이하게</li>
+                        <li><strong>생성 방법</strong>: data-role="navbar" 속성을 가진 &lt;div&gt; 태그 안에 비순서 리스트(&lt;ul&gt;, &lt;li&gt;)를 정의</li>
+                        <li><strong>버튼 활성화</strong>: 특정 버튼에 class="ui-btn-active"를 추가하여 현재 선택된 상태를 시각적으로 강조</li>
+                    </ul>
+                    <div data-role="tabs">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#tab641" class="ui-btn-active ui-state-persist">HTML</a></li>
+                                <li><a href="#tab642">브라우저</a></li>
+                            </ul>
+                        </div>
+                        <pre id="tab641" class="tab-content">&lt;header data-role="header"&gt;
+    &lt;h1&gt;페이지제목&lt;/h1&gt;
+    &lt;div data-role="navbar"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#" class="ui-btn-active"&gt;버튼1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;버튼2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;버튼3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</pre>
+                        <div id="tab642" class="tab-content">
+                            <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">네비게이션바 생성</div>
+                            <div data-role="header">
+                                <h1>페이지제목</h1>
+                                <div div data-role="navbar">
+                                    <ul>
+                                        <li><a href="#" class="ui-btn-active">버튼1</a></li>
+                                        <li><a href="#">버튼2</a></li>
+                                        <li><a href="#">버튼3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section65">
+                <h2>툴바 위치 설정</h2>
+                <ul>
+                    <li><strong>data-position="fixed"</strong>: 헤더바와 푸터바의 표시 위치를 화면 맨 위와 맨 밑으로 고정</li>
+                    <li><strong>data-fullscreen="true"</strong>: 터치 시 나타나고 숨겨지는 전체 화면 모드</li>
+                    <li><strong>지속형 푸터바</strong>: 페이지 이동 시에도 푸터바가 유지됨</li>
+                    <li>각 페이지의 푸터 컨테이너의 data-id 속성값으로 같은 푸터 아이디를 설정</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid6" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page5">CH 05</a></li>
+                    <li><a href="#page6" class="ui-btn-active ui-state-persist">CH 06</a></li>
+                    <li><a href="#page7">CH 07</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page61">
+        <header data-role="header" data-position="fixed" data-add-back-btn="true">
+            <h1>뒤로가기 버튼 예제</h1>
+        </header>
+
+        <main data-role="content">
+            <section>
+                <h3>헤더 컨테이너에 data-add-backbtn="true" 속성 설정</h3>
+                <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;header data-role="header" data-add-back-btn="true"&gt;
+    &lt;h1&gt;뒤로가기 버튼 예제&lt;/h1&gt;
+&lt;/header&gt;</pre>
+                <div data-role="header" data-add-back-btn="true">
+                    <h1>뒤로가기 버튼 예제</h1>
+                </div>
+            </section>
+
+            <section>
+                <h3>버튼의 문자열을 변경하려면 data-back-btn-text 속성을 추가</h3>
+                <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;header data-role="header" data-add-back-btn="true" data-back-btn-text="이전으로"&gt;
+    &lt;h1&gt;뒤로가기 버튼 예제&lt;/h1&gt;
+&lt;/header&gt;</pre>
+                <div data-role="header" data-add-back-btn="true" data-back-btn-text="이전으로">
+                    <h1>뒤로가기 버튼 예제</h1>
+                </div>
+            </section>
+
+            <section>
+                <h3>뒤로가기 버튼(&lt;a data-rel=“back”&gt;)</h3>
+                <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;header data-role="header"&gt;
+    &lt;a data-rel="back"&gt;이전으로&lt;/a&gt;
+    &lt;h1&gt;뒤로가기 버튼 예제&lt;/h1&gt;
+&lt;/header&gt;</pre>
+                <div data-role="header">
+                    <a data-rel="back">이전으로</a>
+                    <h1>뒤로가기 버튼 예제</h1>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div data-role="page" id="page7">
+        <header data-role="header" data-position="fixed">
+            <a href="#commonPanel" data-icon="bars" data-iconpos="notext">메뉴</a>
+            <h1>제이쿼리 모바일 버튼과 리스트뷰</h1>
+        </header>
+
+        <main data-role="content">
+            <nav>
+                <h3>목차</h3>
+                <ul>
+                    <li><a href="#section71" data-ajax="false">버튼</a></li>
+                    <li><a href="#section72" data-ajax="false">아이콘 버튼</a></li>
+                    <li><a href="#section73" data-ajax="false">확장 버튼</a></li>
+                    <li><a href="#section74" data-ajax="false">리스트뷰</a></li>
+                    <li><a href="#section75" data-ajax="false">리스트 구분자</a></li>
+                    <li><a href="#section76" data-ajax="false">멀티미디어 적용</a></li>
+                    <li><a href="#section77" data-ajax="false">검색 필터 리스트</a></li>
+                    <li><a href="#section78" data-ajax="false">페이지 탭</a></li>
+                    <li><a href="#section79" data-ajax="false">컬럼 토글 테이블</a></li>
+                    <li><a href="#section7a" data-ajax="false">숨김 패널</a></li>
+                </ul>
+            </nav>
+
+            <section id="section71">
+                <h2>버튼</h2>
+                <ul>
+                    <li>사용자와의 상호 작용(의사 전달, 요청)을 위한 화면 요소</li>
+                    <li>&lt;a&gt;, &lt;button&gt;, &lt;input&gt; 태그를 사용하여 생성</li>
+                    <li>태그 종류에 상관없이 둥근 모서리, 테두리 음영, 중앙 정렬 등 동일한 외형이 적용</li>
+                    <li>자동 변환을 원하지 않을 경우, data-role="none" 속성을 설정</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab711" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab712">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab711" class="tab-content">&lt;a href="#" data-role="button"&gt;a태그 버튼&lt;/a&gt;
+&lt;button&gt;button태그 버튼&lt;/button&gt;
+&lt;input type="button" value="input태그 버튼"&gt;
+&lt;button data-role="none"&gt;기존버튼&lt;/button&gt;</pre>
+                    <div id="tab712" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">버튼 생성</div>
+                        <a data-role="button" href="#">a태그 버튼</a>
+                        <button>button태그 버튼</button>
+                        <input type="button" value="input태그 버튼">
+                        <button data-role="none">기존버튼</button>
+                    </div>
+                </div>
+                <ul>
+                    <li>버튼이 너무 크면 버튼 너비를 문자열(아이콘 포함) 크기에 맞추어 최소화</li>
+                    <li>&lt;a&gt;, &lt;button&gt;, &lt;input&gt; 태그를 사용하여 생성</li>
+                    <li>태그 종류에 상관없이 둥근 모서리, 테두리 음영, 중앙 정렬 등 동일한 외형이 적용</li>
+                </ul>
+            </section>
+
+            <section id="section72">
+                <h2>아이콘 버튼</h2>
+                <ul>
+                    <li>data-icon 속성을 통해 지정</li>
+                    <li><strong>data-inline="true"</strong>: 버튼 너비 최소화</li>
+                    <li><strong>data-iconpos="notext"</strong>: 문자열 없이 아이콘만 버튼에 표시</li>
+                    <li><strong>아이콘 위치 변경</strong>: data-iconpos 속성값으로 top(상), bottom(하), left(좌), right(우) 중 하나를 설정</li>
+                    <li><strong>사용자 정의 아이콘</strong>: &lt;style&gt; 태그 안에 사용자정의 아이콘의 파일 위치와 아이콘 스타일 속성들로 CSS3 클래스를 정의</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab721" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab722">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab721" class="tab-content">&lt;style&gt;
+    .ui-icon-사용자정의아이콘이름:after {
+        background : url(아이콘파일경로명) 스타일 속성값 ;
+        background-size : 아이콘이미지크기 ;
+    }
+&lt;/style&gt;
+. . .
+&lt;button data-icon="delete" data-inline="true"&gt;취소&lt;/button&gt;
+&lt;button data-icon="check" data-iconpos="notext"&gt;확인&lt;/button&gt;
+&lt;button data-icon="arrow-u" data-iconpos="top"&gt;위쪽 버튼&lt;/button&gt;</pre>
+                    <div id="tab722" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">아이콘 버튼의 변형</div>
+                        <button data-icon="delete" data-inline="true">취소</button>
+                        <button data-icon="check" data-iconpos="notext">확인</button>
+                        <button data-icon="arrow-u" data-iconpos="top">위쪽 버튼</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="section73">
+                <h2>확장 버튼</h2>
+                <ul>
+                    <li><strong>이미지 버튼</strong>: &lt;a&gt; 태그 안에 &lt;img&gt; 태그를 추가</li>
+                    <li><strong>버튼 그룹</strong>: 미적으로 밀접하게 관련된 버튼들을 그룹화</li>
+                    <li><strong>버튼 테마</strong>: 버튼마다 data-theme 속성값을 설정함으로써 각 버튼의 테마 변경 가능</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab731" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab732">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab731" class="tab-content">&lt;a href="#" data-role="button" data-theme="b"&gt; &lt;img src="logo-jquery.png"&gt; &lt;/a&gt;
+&lt;div data-role="controlgroup" data-theme="a"&gt;
+    &lt;button&gt;버튼1&lt;/button&gt;
+    &lt;button&gt;버튼2&lt;/button&gt;
+&lt;/div&gt;
+&lt;div data-role="controlgroup" data-type="horizontal"&gt;
+    &lt;button&gt;버튼3&lt;/button&gt;
+    &lt;button&gt;버튼4&lt;/button&gt;
+&lt;/div&gt;</pre>
+                    <div id="tab732" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">확장 버튼</div>
+                        <a href="#" data-role="button" data-theme="b"> <img src="https://jquery.com/wp-content/themes/jquery/images/logo-jquery.png"> </a>
+                        <div data-role="controlgroup" data-theme="a">
+                            <button>버튼1</button>
+                            <button>버튼2</button>
+                        </div>
+                        <div data-role="controlgroup" data-type="horizontal">
+                            <button>버튼3</button>
+                            <button>버튼4</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section74">
+                <h2>리스트뷰</h2>
+                <ul>
+                    <li>많은 양의 정보를 효율적으로 보여주기 위한 필수 요소</li>
+                    <li>&lt;ul&gt; 또는 &lt;ol&gt; 태그에 data-role="listview"를 설정하여 생성</li>
+                    <li><strong>연결 리스트뷰</strong>: 기본 리스트뷰의 각 항목에 링크 정보를 추가</li>
+                    <li><strong>data-inset="true"</strong>: 콘텐츠 영역 안에 내부 블록을 형성하고 그 안에 리스트뷰를 표시</li>
+                    <li><strong>분할 리스트뷰</strong>: 각 항목 영역을 분리하여 둘 이상의 링크를 통해 여러 페이지와의 연동</li>
+                    <li><strong>카운트 버블</strong>: 리스트뷰 항목의 둥근 거품 방울 모양의 화면 요소</li>
+                </ul>
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab741" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab742">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab741" class="tab-content">
+&lt;ul data-role="listview" data-inset="true"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;리스트1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;리스트2&lt;/a&gt;&lt;a href="#"&gt;상세내용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;리스트3&lt;span class="ui-li-count"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+                    </pre>
+                    <div id="tab742" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">리스트뷰</div>
+                        <ul data-role="listview" data-inset="true">
+                            <li><a href="#">리스트1</a></li>
+                            <li><a href="#">리스트2</a><a href="#">상세내용</a></li>
+                            <li><a href="#">리스트3<span class="ui-li-count">5</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section75">
+                <h2>리스트 구분자</h2>
+                <ul>
+                    <li>원하는 항목을 찾기 쉽도록 각 그룹별로 분류명을 표시</li>
+                    <li>&lt;li&gt; 태그 안에 data-role="listdivider" 속성을 추가</li>
+                    <li>항목들이 하나의 그룹으로만 분류되는 경우, 리스트 구분자는 항목들의 제목 역할을 함</li>
+                </ul>
+                
+            </section>
+
+            <section id="section76">
+                <h2>멀티미디어 적용</h2>
+                <ul>
+                    <li><strong>썸네일 리스트뷰</strong>: 리스트뷰의 각 항목 내용으로 &lt;img&gt; 태그를 추가</li>
+                    <li><strong>아이콘 리스트뷰</strong>: &lt;img&gt; 태그에 ui-li-icon 클래스 속성을 추가</li>
+                    <li><strong>여러 줄 리스트뷰</strong>: 표시 내용의 중요도에 따라 강조할 내용은 &lt;h&gt; 제목 태그로, 나머지 내용은 &lt;p&gt; 문단 태그를 사용하여 일정한 형식으로 상세한 설명과 관련 정보들을 여러 줄에 표시</li>
+                </ul>
+            </section>
+
+            <section id="section77">
+                <h2>검색 필터 리스트</h2>
+                data-filter="true" 속성을 추가하면 상단에 키워드 검색창이 생성되어 항목을 필터링할 수 있음
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab771" class="ui-btn-active ui-state-persist">HTML</a></li>
+                            <li><a href="#tab772">브라우저</a></li>
+                        </ul>
+                    </div>
+                    <pre id="tab771" class="tab-content">
+&lt;ul data-role="listview" data-inset="true" data-filter="true"&gt;
+    &lt;li data-role="listdivider"&gt;ㄱ&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;강&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-role="listdivider"&gt;ㅂ&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;바다&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;바다새&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    <div id="tab772" class="tab-content">
+                        <div style="background-color: lightblue; padding: 3px; border-radius: 5px;">리스트뷰</div>
+                        <ul data-role="listview" data-inset="true" data-filter="true">
+                            <li data-role="listdivider">ㄱ</li>
+                            <li><a href="#">강</a></li>
+                            <li data-role="listdivider">ㅂ</li>
+                            <li><a href="#">바다</a></li>
+                            <li><a href="#">바다새</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section78">
+                <h2>페이지 탭</h2>
+                <ul>
+                    <li>data-role="tabs"를 사용</li>
+                    <li>한 화면 내에서 여러 탭 페이지를 전환하며 브라우징</li>
+                </ul>
+                <pre style="border: 1px solid black; border-radius: 5px; padding: 3px">&lt;div data-role="tabs"&gt;
+    &lt;div data-role="navbar"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#tab1"&gt;탭1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#tab2"&gt;탭2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id="tab1"&gt;
+        첫번째 탭 내용
+    &lt;/div&gt;
+    &lt;div id="tab2"&gt;
+        두번째 탭 내용
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </section>
+
+            <section id="section79">
+                <h2>컬럼 토글 테이블</h2>
+                <ul>
+                    <li>화면 폭에 따라 테이블 컬럼을 자동으로 숨기거나 표시</li>
+                    <li>data-priority 속성으로 컬럼별 우선순위를 지정</li>
+                </ul>
+            </section>
+
+            <section id="section7a">
+                <h2>숨김 패널</h2>
+                <ul>
+                    <li>메뉴나 폼 등을 숨겨두었다가 필요할 때 페이지 전환 없이 끌어내는 기능</li>
+                    <li>data-role="panel"로 정의</li>
+                    <li>overlay 방식으로 페이지 위에 펼칠 수 있음</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer data-role="footer" data-id="footerid7" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page6">CH 06</a></li>
+                    <li><a href="#page7" class="ui-btn-active ui-state-persist">CH 07</a></li>
+                    <li></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

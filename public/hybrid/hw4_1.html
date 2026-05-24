@@ -1,0 +1,258 @@
+<!--
+학번 : 202214038
+
+이름 : 김이언
+
+과제작성일: 2026-04-03
+
+과제설명 : [hw4_1] 미디어쿼리
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[hw4_1] 미디어쿼리</title>
+    <style>
+        :root {
+            --color-primary: #A91D3A;
+            --color-primary-hover: #C12745;
+            --color-bg-base: #F8F9FA;
+            --color-bg-card: #FFFFFF;
+            --color-text-main: #212529;
+            --color-text-sub: #6C757D;
+            --color-border-light: #DEE2E6;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background-color: var(--color-bg-base);
+            color: var(--color-text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width:1200px;
+            background: var(--color-bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            border-left: 5px solid var(--color-primary);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--color-primary);
+        }
+
+        @media only screen and (orientation: landscape) {
+            #section1 { float: left; width: 35%; }
+            #section2 { float: right; width: 60%; }
+        }
+
+        .contents {
+            margin-top: 40px;
+        }
+
+        #intro {
+            background-color: var(--color-bg-base);
+            padding: 25px;
+            border-radius: 12px;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            border: 1px solid var(--color-border-light);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--color-text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: '•';
+            color: var(--color-primary);
+            margin-right: 8px;
+        }
+
+        a {
+            margin: 3px auto;
+        }
+
+        .link-primary {
+            display: inline-block;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .link-primary:hover {
+            color: var(--color-primary-hover);
+            border-bottom-color: var(--color-primary-hover);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 5px;
+            margin-bottom: 40px;
+        }
+
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-bg-base);
+            font-weight: 500;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--color-border-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        thead {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+        }
+
+        th {
+            padding: 15px;
+            font-weight: 600;
+            width: 16%;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid var(--color-bg-base);
+            background-color: var(--color-bg-card);
+        }
+
+        tbody tr td:not(:first-child):not(:empty) {
+            background-color: rgba(169, 29, 58, 0.03);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        tbody td:first-child {
+            background-color: var(--color-bg-base);
+            font-weight: bold;
+            color: var(--color-text-sub);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>김이언 (Ian Kim)</h1>
+        </header>
+
+        <section id="section1">
+            <div class="contents" id="intro">
+                안녕하세요. 저는 소프트웨어융합학부 <span style="font-weight: bold;">김이언</span>입니다.<br>
+                평소 프론트엔드, 백엔드, 서버 관리에 관심을 가지고 있습니다.<br>
+                이번 학기에는 프론트엔드 프로그래밍과 모바일 프로그래밍을 수강하고 있습니다.<br>
+                웹 개발과 관련된 다양한 기술을 배우고 싶어서 열심히 공부 중입니다.<br>
+                앞으로도 계속해서 성장하는 개발자가 되기 위해 노력할 예정입니다. 감사합니다!<br>
+            </div>
+
+            <div class="contents">
+                <h3>자주 방문하는 사이트</h3>
+                <a href="https://jp.iank.im/" target="_blank" class="link-primary">개인 실습용 서버 바로가기</a><br>
+                <a href="https://jp.iank.im/web/" target="_blank" class="link-primary"> 웹개발입문 실습 바로가기</a><br>
+                <a href="https://jp.iank.im/password/" target="_blank" class="link-primary">비밀번호 생성기 바로가기</a><br>
+                <a href="https://jp.iank.im/wol/" target="_blank" class="link-primary">WOL 서버 바로가기</a>
+            </div>
+
+            <div class="contents">
+                <h3>2026학년도 1학기 수강 과목</h3>
+                <ul>
+                    <li>운영체제</li>
+                    <li>프론트엔드프로그래밍</li>
+                    <li>논리회로설계</li>
+                    <li>모바일프로그래밍</li>
+                    <li>하이브리드앱프로그래밍</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section2">
+            <div class="contents">
+                <h3>주간 시간표</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>시간</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00</td>
+                                <td rowspan="2"></td>
+                                <td rowspan="2"></td>
+                                <td rowspan="2">논리회로설계</td>
+                                <td rowspan="6"></td>
+                                <td rowspan="2">모바일프로그래밍</td>
+                            </tr>
+                            <tr>
+                                <td>10:30</td>
+                            </tr>
+                            <tr>
+                                <td>12:00</td>
+                                <td>운영체제</td>
+                                <td rowspan="2">1인 미디어의 이해와 제작</td>
+                                <td>운영체제</td>
+                                <td rowspan="2">하이브리드앱</td>
+                            </tr>
+                            <tr>
+                                <td>13:30</td>
+                                <td>프론트엔드프로그래밍</td>
+                                <td>프론트엔드프로그래밍</td>
+                            </tr>
+                            <tr>
+                                <td>15:00</td>
+                                <td rowspan="2"></td>
+                                <td rowspan="2"></td>
+                                <td rowspan="2">기업가정신CEO특강</td>
+                                <td rowspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>16:30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

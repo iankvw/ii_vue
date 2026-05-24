@@ -1,0 +1,91 @@
+<!--
+학번 : 202214038
+
+이름 : 김이언
+
+과제작성일: 2026-04-17
+
+과제설명 : [hw7_2] Jquery Mobile 리스트뷰, 숨김패널
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[hw7_2] Jquery Mobile 리스트뷰, 숨김패널</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
+
+    <style></style>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="panel" id="panel1" data-display="overlay" data-position="right">
+            <h3>바로가기</h3>
+            <a href="#" data-rel="close" data-role="button" data-icon="home">첫 화면</a>
+            <a href="#" data-role="button" data-icon="phone">전화 문의</a>
+            <a href="#" data-rel="close" data-role="button" data-icon="delete">닫기</a>
+        </div>
+
+        <header data-role="header" data-position="fixed">
+            <a href="#page2">다음</a>
+            <h1>대학교 안내</h1>
+            <a href="#panel1" data-icon="grid" class="ui-btn-right">메뉴</a>
+        </header>
+
+        <main data-role="content">
+            <a href="#" data-role="button" data-icon="info">학교 소개</a>
+            <a href="#" data-role="button" data-icon="location">위치 보기</a>
+            <a href="#" data-role="button" data-icon="search" data-iconpos="right">검색</a>
+
+            <ul data-role="listview" data-inset="true">
+                <li data-role="listdivider">공지사항</li>
+                <li><a href="#">2026학년도 신입생 모집</a></li>
+                <li><a href="#">장학금 신청 안내</a></li>
+            </ul>
+        </main>
+
+        <footer data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="home">홈</a></li>
+                    <li><a href="#" data-icon="star">즐겨찾기</a></li>
+                    <li><a href="#panel1" data-icon="grid">메뉴</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div data-role="page" id="page2">
+        <div data-role="panel" id="panel2" data-display="overlay" data-position="right">
+            <h3>바로가기</h3>
+            <a href="#page1" data-role="button" data-icon="home">첫 화면</a>
+            <a href="#" data-role="button" data-icon="phone">전화 문의</a>
+            <a href="#" data-rel="close" data-role="button" data-icon="delete">닫기</a>
+        </div>
+
+        <header data-role="header" data-position="fixed">
+            <h1>학과 정보</h1>
+            <a href="#panel2" data-icon="grid" class="ui-btn-right">메뉴</a>
+        </header>
+
+        <main data-role="content">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Filter items..." data-inset="true">
+                <li data-role="listdivider">개설 학과</li>
+                <li><a href="#">컴퓨터공학과</a></li>
+                <li><a href="#">인공지능학과<span class="ui-li-count">5</span></a></li>
+                <li><a href="#">게임학과</a></li>
+                <li><a href="#">정보보호학과</a></li>
+            </ul>
+            <a href="#page1" data-role="button" data-icon="home">메인으로 이동</a>
+        </main>
+
+        <footer data-role="footer" data-position="fixed">
+            <h3>학과 안내 페이지</h3>
+        </footer>
+    </div>
+</body>
+</html>

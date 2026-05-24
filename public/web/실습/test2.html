@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Test</title>
+    <style>
+        span.number {
+            border: 1px solid black;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>기말고사</h1>
+    <hr>
+    <div id="6-3">
+        <h3>6-3 자바스크립트 대신 CSS3로 구현</h3>
+        <script>
+            function ch(obj, col) {
+                obj.style.background = col
+            }
+        </script>
+        <div>
+            <span class="number" onmouseover="ch(this, 'red')" onmouseout="ch(this, 'white')">1</span>
+            <span class="number" onmouseover="ch(this, 'blue')" onmouseout="ch(this, 'white')">2</span>
+            <span class="number" onmouseover="ch(this, 'green')" onmouseout="ch(this, 'white')">3</span>
+        </div>
+    </div>
+    <hr>
+    <div id="6-4">
+        <h3>6-4 Welcome Home</h3>
+        <input type="text" id="welcome" value="월">
+        <button id="welcomego" onclick="go()">go</button>
+        <br><br>
+        <div id="open" style="font-size: 25px;"></div>
+        <span class="number" id="월">월</span>
+        <span class="number" id="화">화</span>
+        <span class="number" id="수">수</span>
+        <span class="number" id="목">목</span>
+        <span class="number" id="금">금</span>
+        <span class="number" id="토">토</span>
+        <span class="number" id="일">일</span>
+        <script>
+            function go() {
+                nowday = document.getElementById("welcome").value
+                opentext = document.getElementById("open")
+                numtext = document.getElementById(nowday)
+                switch (nowday) {
+                    case "월":
+                    case "화":
+                    case "수":
+                    case "목":
+                    case "금":
+                        numtext.style.background = "blue"
+                        opentext.style.color = "blue"
+                        opentext.innerHTML = nowday + "요일은 서비스를 하는 날입니다."
+                        break
+                    case "토":
+                    case "일":
+                        numtext.style.background = "red"
+                        opentext.style.color = "red"
+                        opentext.innerHTML = nowday + "요일은 쉬는 날입니다."
+                        break
+                }
+            }
+        </script>
+    </div>
+    <hr>
+    <div id="7-1">
+        <h3>7-1 난수 10개 생성</h3>
+        <script>
+            let l = new Array(10)
+            let mx = 0
+            for (let i = 0; i < l.length; i++) {
+                l[i] = Math.floor(Math.random() * 100)+1
+                document.writeln(l[i])
+                if (mx < l[i]) mx = l[i]
+            }
+            document.writeln("<br>제일 큰 수는 " + mx + "<br>")
+            l.sort((a,b) => a-b)
+            for (let i = 0; i < l.length; i++) {
+                document.writeln(l[i])
+            }
+        </script>
+    </div>
+    <hr>
+    <div id="7-9">
+        <h3>book 객체 만들기</h3>
+        <script>
+            function prbook(obj) {
+                document.write("book : " + obj.name + ", " + obj.author + ", " + obj.price + "<br>")
+            }
+            let book1 = new Object()
+            book1.name = "HTML5"
+            book1.author = "newobj"
+            book1.price = 20000
+            prbook(book1)
+            let book2 = {
+                name : "html6",
+                author : "리터럴",
+                price : 30000
+            }
+            prbook(book2)
+            function book (name, author, price) {
+                this.name = name
+                this.author = author
+                this.price = price
+            }
+            let book3 = new book("html1", "프로토타입", 40000)
+            prbook(book3)
+        </script>
+    </div>
+    <hr>
+    <div id="7-10">
+        <h3>book 객체 배열 만들기</h3>
+        <script>
+            bookarray = []
+            maxpr = 0
+            maxti = ""
+            function genbook() {
+                br = document.getElementById("bookarr").value.split(",")
+                b = new book(br[0],br[1],br[2])
+                ap = document.createElement("div")
+                ap.innerHTML = "book : " + b.name + ", " + b.author + ", " + b.price + "<br>"
+                document.getElementById("7-10").appendChild(ap)
+                if (maxpr < br[2]) {maxpr = br[2];maxti = br[0]}
+                bookarray += b
+                document.getElementById("expensive").innerHTML = "가격이 가장 비싼 책은" + maxti
+            }
+        </script>
+        <input type="text" value="HTML5,황기태,20000" id="bookarr">
+        <button id="bookarrgo" onclick="genbook()">go</button>
+        <br>
+        <div id="expensive"></div>
+    </div>
+</body>
+
+</html>

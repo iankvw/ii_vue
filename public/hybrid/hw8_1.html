@@ -1,0 +1,63 @@
+<!--
+학번 : 202214038
+
+이름 : 김이언
+
+과제작성일: 2026-05-08
+
+과제설명 : [hw8_1] Jquery Mobile 인풋 컨트롤
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[hw8_1] Jquery Mobile 인풋 컨트롤</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
+
+    <style></style>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <header data-role="header" data-position="fixed">
+            <h1>header 영역</h1>
+        </header>
+
+        <main data-role="content">
+            <div data-role="fieldcontain">
+                <input type="text" name="input1" id="input1" />
+                <input type="search" name="input2" id="input2" placeholder="키워드를 입력하세요">
+                <input type="range" name="input3" id="input3" value="34" min="0" max="100" />
+
+                <select name="gender" id="gender1" data-role="slider">
+                    <option value="male">남자</option>
+                    <option value="female">여자</option>
+                </select>
+                
+                <fieldset data-role="controlgroup">
+                    <legend style="margin-top: 15px;">연락매체</legend>
+                    <input type="checkbox" name="type1" id="type1" value="1"/>
+                    <label for="type1">e-mail</label>
+                    <input type="checkbox" name="type2" id="type2" value="2" checked="checked"/>
+                    <label for="type2">phone</label>
+                </fieldset>
+                
+                <select name="age1" id="age1" data-native-menu="false" multiple="multiple">
+                    <option value="" data-placeholder="true">복수선택하세요</option>
+                    <option value="num1">인터넷</option>
+                    <option value="num2">방송</option>
+                </select>
+
+            </div>
+        </main>
+
+        <footer data-role="footer" data-position="fixed">
+            <h3>footer 영역</h3>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function probj(obj) {
+            // 객체 활용
+            document.write("account : ");
+            document.write(obj.owner + ", ");
+            document.write(obj.code + ", ");
+            document.write(obj.balance + "<br>");
+
+            obj.deposit(10000); // 10000원 저금
+            document.write("10000원 저금 후 잔액은 " + obj.inquiry() + "<br>");
+            obj.withdraw(5000); // 5000원 인출
+            document.write("5000원 인출 후 잔액은 " + obj.inquiry() + "<br>");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Math를 활용한 구구단 연습</h1>
+    <hr>
+    <script>
+        function randint() { return Math.floor(Math.random() * 9) + 1 }
+        let a = randint()
+        let b = randint()
+        let nnd = a + "*" + b
+        let ques = prompt(nnd + "값은 얼마입니까?")
+        if (ques == null)
+            document.write("취소")
+        else if (ques == a * b)
+            document.write(ques + "는 정답" + nnd + "=" + a * b + "입니다.")
+        else
+            document.write(ques + "는 오답" + nnd + "=" + a * b + "입니다.")
+    </script>
+    <h1>난수 10개 생성</h1>
+    <hr>
+    <script>
+        let n = []
+        for (let i = 0; i < 10; i++) {
+            n[i] = Math.floor(Math.random() * 100) + 1
+        }
+        let mx = n[0]
+        for (let i = 0; i < 10; i++) {
+            document.write(n[i] + " ")
+            if (mx < n[i])
+                mx = n[i]
+        }
+        document.write("<hr>제일 큰 수는 " + mx + "<hr>")
+        n.sort((a, b) => a - b)
+        for (let i = 0; i < 10; i++) {
+            document.write(n[i] + " ")
+        }
+    </script>
+    <h1>new Object()로 사용자 객체 만들기</h1>
+    <hr>
+    <script>
+        //메소드로 사용할 3 개의 함수 작성
+        function inquiry() { return this.balance; } // 잔금 조회
+        function deposit(money) { this.balance += money; } // money 만큼 저금
+        function withdraw(money) { // 예금 인출, money는 인출하고자 하는 액수
+            // money가 balance보다 작다고 가정
+            this.balance -= money;
+            return money;
+        }
+        // 사용자 객체 만들기
+        let account1 = new Object();
+        account1.owner = "황기태"; // 계좌 주인 프로퍼티 생성 및 초기화
+        account1.code = "1110"; // 코드 프로퍼티 생성 및 초기화
+        account1.balance = 11111; // 잔액 프로퍼티 생성 및 초기화
+        account1.inquiry = inquiry; // 메소드 작성
+        account1.deposit = deposit; // 메소드 작성
+        account1.withdraw = withdraw; // 메소드 작성
+        probj(account1);
+    </script>
+    <h1>리터럴 표기법으로 사용자 객체 만들기</h1>
+    <hr>
+    <script>
+        let account2 = {
+            // 프로퍼티 생성 및 초기화
+            owner: "황기태", // 계좌 주인
+            code: "2220", // 계좌 코드
+            balance: 22222, // 잔액 프로퍼티
+
+            // 메소드 작성
+            inquiry: function () { return this.balance; }, // 잔금 조회
+            deposit: function (money) { this.balance += money; }, // 저금. money 만큼 저금
+            withdraw: function (money) { // 예금 인출, money는 인출하고자 하는 액수
+                // money가 balance보다 작다고 가정
+                this.balance -= money;
+                return money;
+            }
+        };
+        probj(account2);
+    </script>
+    <h1>Account 프로토타입 만들기</h1>
+    <hr>
+    <script>
+        // 프로토타입 만들기 : 생성자 함수 작성
+        function Account(owner, code, balance) {
+            // 프로퍼티 만들기
+            this.owner = owner; 	// 계좌 주인 프로퍼티 만들기 
+            this.code = code; 		// 계좌 코드 프로퍼티 만들기 
+            this.balance = balance; // 잔액 프로퍼티 만들기 
+
+            // 메소드 만들기
+            this.inquiry = function () { return this.balance; }
+            this.deposit = function (money) { this.balance += money; }
+            this.withdraw = function (money) { // 예금 인출, money는 인출하는 액수
+                // money가 balance보다 작다고 가정
+                this.balance -= money;
+                return money;
+            }
+        }
+        let account3 = new Account("황기태", "3330", 33333);
+        probj(account3);
+    </script>
+</body>
+
+</html>

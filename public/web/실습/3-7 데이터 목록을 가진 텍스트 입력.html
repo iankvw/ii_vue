@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 목록을 가진 텍스트 입력</title>
+</head>
+<body>
+    <h3>가보고 싶은 곳</h3>
+    <hr>
+    <form>
+        나라: <input type="text" list="countries"><br>
+        <datalist id="countries">
+            <option value="가나"></option>
+            <option value="스위스"></option>
+        </datalist>
+        <input type="button" value="q1">
+        <button type="button">q2</button><br>
+    </form>
+    <h3>먹고 싶은 것 모두 체크하세요</h3>
+    <form>
+        짜장면 <input type="radio" name="china" value="1">
+        짬뽕 <input type="radio" name="china" value="2">
+        탕수육 <input type="checkbox" value="3">
+        <select name="china2">
+            <option value="4">짜장면</option>
+            <option value="5" selected>짬뽕</option>
+        </select>
+    </form>
+    <h3>&lt;label&gt; 태그로 로그인 폼 만들기</h3>
+    <form>
+        <label>사용자 ID: <input type="text" size="15" value=" "></label>
+        <label></label>
+    </form>
+</body>
+</html>

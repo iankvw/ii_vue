@@ -1,0 +1,37 @@
+<!--
+학번 : 202214038
+
+이름 : 김이언
+
+과제작성일: 2026-05-20
+
+과제설명 : [hw9_2] jquery
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[hw9_2] jquery</title>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('li:not(:first)').css('background-color', 'yellow')
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="myList">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+</body>
+
+</html>

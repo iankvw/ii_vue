@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            width: 100%;
+			height: 200px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: solid 2px #1E90FF;
+			border-radius: 5px;
+			font-size: 16px;
+			resize: both;
+        }
+        div#result {visibility: hidden;}
+        input[type=number], button {
+            background: white;
+			padding: 10px;
+			box-sizing: border-box;
+			border: solid 2px #1E90FF;
+			border-radius: 5px;
+			font-size: 16px;
+			resize: both;
+        }
+        button:hover {background: skyblue;}
+    </style>
+    <script>
+        function go() {
+            let text = document.getElementById("textarea").value.replace(/(\r\n|\r|\n)/g, " ").split(" ")
+            let result = ""
+            for (i = 0; i < text.length; i++) {
+                result += text[i][0]
+            }
+            document.getElementById("result").innerHTML = "<br><b>결과는</b><br>" + result
+            document.getElementById("result").style.visibility = "visible"
+        }
+        function tm() {
+            let tmlist = ['갑', '개', '개렁디', '개색', '개섹', '갬', '갭', '갭짝', '갭짹', '갸은', '계은', '김민식', '꿀', '민식이', '뽕', '뿡', '삭', '색', '세엑', '섹', '싹', '쌕', '쎅', '쑤', '쑤락', '쑤랑', '쑤렉', '쓰', '쓰락', '쓰렉', '응당', '응댕', '응디', '짜갑', '짜기갑', '짝', '짝삭', '짹', '짹갭', '쨈']
+            let forlen = parseInt(document.getElementById("number").value)
+            let result = ""
+            for (let i = 0; i < forlen; i++) {
+                result += tmlist[Math.floor(Math.random()*tmlist.length)]
+            }
+            document.getElementById("tm").innerHTML = result.substr(0,forlen)
+        }
+    </script>
+</head>
+<body>
+    <h3>Jot장 형님 생성기</h3>
+    <textarea id="textarea"></textarea>
+    <br>
+    <button onclick="document.getElementById('textarea').value = ''">초기화</button>
+    <button onclick="go()">레츠기릿</button>
+    <div id="result"><br><b>결과는</b><br>undefined</div>
+    <br>
+    <hr>
+    <h3>쑤랑싹짝뽕 생성기</h3>
+    <input type="number" id="number" value="5">
+    <button onclick="tm()">레츠기릿</button>
+    <div id="tm"></div>
+</body>
+</html>

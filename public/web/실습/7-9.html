@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function prbook(obj) {
+            document.write("book : " + obj.title + ", " + obj.author + ", " + obj.price)
+        }
+    </script>
+</head>
+<body>
+    <h1>book 객체 만들기</h1>
+    <hr>
+    book : HTML5, 황기태, 20000
+    <h1>new Object()</h1>
+    <hr>
+    <script>
+        book1 = new Object();
+        book1.title = "HTML6";
+        book1.author = "황기태";
+        book1.price = 12345;
+        prbook(book1);
+    </script>
+    <h1>리터럴 표기법</h1>
+    <hr>
+    <script>
+        book2 = {
+            title : "HTML7",
+            author : "황기태",
+            price : 23456
+        }
+        prbook(book2);
+    </script>
+    <h1>프로토타입</h1>
+    <hr>
+    <script>
+        function book(title, author, price) {
+            this.title = title;
+            this.author = author;
+            this.price = price;
+        }
+        let book3 = new book("HTML8", "황기태", 34567);
+        prbook(book3);
+    </script>
+    <h1>book 객체 배열 만들기</h1>
+    <hr>
+    <script>
+        let bookarray = []
+        let maxprice = 0
+        let maxpricetitle;
+        for (let i = 0; i < 5; i++) {
+            let bookinput = prompt("콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력")
+            let bookinputsplit = bookinput.split(",")
+            bookarray[i] = new Object()
+            bookarray[i].title = bookinputsplit[0]
+            bookarray[i].author = bookinputsplit[1]
+            bookarray[i].price = bookinputsplit[2]
+            if (maxprice < parseInt(bookinputsplit[2])) {
+                maxprice = parseInt(bookinputsplit[2])
+                maxpricetitle = bookinputsplit[0]
+            }
+        }
+        for (let i = 0; i < 5; i++) {
+            document.write(bookarray[i].title + ", " + bookarray[i].author + ", " + bookarray[i].price + "<br>")
+        }
+        document.write("<hr>가격이 가장 비싼 책은 " + maxpricetitle + "<br>")
+    </script>
+    <br>
+    new obj 이용book 객체의 배열 bookarray 생성
+    prompt함수 사용 5개책 입력 책정보와 가장 비싼 책 출력
+    HTML5,황기태,20000
+    CSS3,이재문,50000
+    자바,한원선,60000
+    자바스크립트,홍길동,25000
+    c++,kitae,35000
+</body>
+</html>

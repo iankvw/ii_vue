@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Forbidden</title>
+    <style>
+        :root {
+            --color-main: #A91D3A;
+            --color-main-hover: #C12745;
+            --color-main-active: #8E1831;
+            
+            --color-bg: #F8F9FA;
+            --color-text: #212529;
+            --color-border: #DEE2E6;
+            --color-white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-container {
+            max-width: 500px;
+            width: 90%;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--color-text);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 15px 0 10px;
+            color: var(--color-main);
+        }
+
+        .error-description {
+            font-size: 1rem;
+            color: var(--color-text);
+            opacity: 0.7;
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background-color: var(--color-white);
+            color: var(--color-main);
+            border: 2px solid var(--color-main);
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-home:hover {
+            background-color: var(--color-main);
+            color: var(--color-white);
+        }
+
+        .btn-home:active {
+            background-color: var(--color-main-active);
+            border-color: var(--color-main-active);
+            color: var(--color-white);
+            transform: scale(0.98);
+        }
+
+        .highlight-url {
+            font-family: 'Cascadia Code', Consolas, monospace;
+            font-weight: bold;
+            color: var(--color-main);
+            background-color: rgba(169, 29, 58, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="error-container">
+        <h1 class="error-code">403</h1>
+        <h2 class="error-title">That’s an error.</h2>
+        <p class="error-description">
+            Your client does not have permission to get URL <span id="forbidden-url" class="highlight-url"></span> from this server.<br>
+            That’s all we know.
+        </p>
+        <a href="/" class="btn-home">Return to Home</a>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const currentPath = window.location.pathname + window.location.search;
+            const urlElement = document.getElementById('forbidden-url');
+            if (urlElement) {
+                urlElement.textContent = currentPath || '/';
+            }
+        });
+    </script>
+</body>
+</html>

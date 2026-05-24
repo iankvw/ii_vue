@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹개발입문 스터디그룹 참여 신청서</title>
+    <style>
+        @keyframes textColor {
+            0% {color: red;}
+            10% {color: gold;}
+            30% {color: green;}
+            50% {color: blue;}
+            70% {color: purple;}
+            90% {color: magenta;}
+            100% {color: red;}
+        }
+        @keyframes rotate {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        * {font-family: 'Times New Roman', Times, serif;}
+        body {background: aliceblue;}
+        header, textarea {animation-name: textColor; animation-duration: 15s; animation-iteration-count: infinite;}
+        form {background: mistyrose; padding: 10px;}
+        input[type="text"]:hover, input[type="text"]:focus {background: gold; color: red;}
+        select:hover, select:focus {background: gold;}
+        input:focus {animation-name: rotate; animation-duration: 5s; animation-iteration-count: infinite;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>웹개발입문 스터디그룹 참여 신청서(확장형)</h1>
+        웹개발입문 스터디그룹에 참여할 사람은 아래의 각 사항에 답하여 보내주세요. 많은 참여 부탁드립니다.
+        <hr>
+    </header>
+    <section>
+        <form name="id">
+            <p>
+                <label>이름 <input type="text" size="15" value=""></label>
+                <br>
+            </p>
+            <p>
+                <label>이메일 <input type="email" size="15" value="" placeholder="id@host.com"></label>
+                <br>
+            </p>
+            <p>
+                <label>전화번호 <input type="text" size="15" value="" placeholder="010-1234-5678"></label>
+                <br>
+            </p>
+            <p>
+                성별
+                <label><input type="radio" name="sex" value="1">남</label>
+                <label><input type="radio" name="sex" value="2">여</label>
+                <br>
+            </p>
+            <p>
+                학년
+                <label><input type="radio" name="grade" value="1">1학년</label>
+                <label><input type="radio" name="grade" value="2" checked>2학년</label>
+                <label><input type="radio" name="grade" value="3">3학년</label>
+                <label><input type="radio" name="grade" value="4">4학년</label>
+                <br>
+            </p>
+            <p>
+                소속학부
+                <select name="china">
+                    <option value="1">인문융합콘텐츠/자율학부</option>
+                    <option value="2">경영학부</option>
+                    <option value="3">사회융합(자율)학부</option>
+                    <option value="4">미디어콘텐츠융합(자율)학부</option>
+                    <option value="5">미래융합학부</option>
+                    <option value="6">소프트웨어융합/IT융합자율학부</option>
+                </select>
+                <br>
+            </p>
+            <p>
+                <label>제1전공 <input type="text" size="15" value=""></label>
+                <br>
+            </p>
+            <p>
+                <label>제2전공 <input type="text" size="15" value=""></label>
+                <br>
+            </p>
+            <p>
+                관심주제
+                <label><input type="checkbox">HTML5</label>
+                <label><input type="checkbox">CSS3</label>
+                <label><input type="checkbox">Javascript</label>
+                <label><input type="checkbox">웹 페이지 제작</label>
+            </p>
+            <p>
+                <label>
+                    첫모임 가능일시
+                    <input type="date" value="2025-03-27" id="firstMeet">
+                    <input type="time" value="18:00" id="firstMeet">
+                </label>
+            </p>
+            <p>
+                <label>
+                    첫모임 공부시간(분)
+                    <input type="number" value="10" min="0" step="5">
+                </label>
+            </p>
+            <p>
+                <label>
+                    문의 또는 바라는 글
+                    <br>
+                    <textarea cols="40" rows="8">자유롭게 글을 남겨주세요</textarea>
+                </label>
+            </p>
+            <p>
+                <input type="button" value="취소">
+                <input type="button" value="제출">
+            </p>
+        </form>
+    </section>
+</body>
+</html>
